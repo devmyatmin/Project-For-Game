@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_player"]
 [ext_resource type="Script" path="res://Scripts/MobileControls.cs" id="2_controls"]
 [ext_resource type="Script" path="res://Scripts/SurvivalStats.cs" id="3_survival"]
+[ext_resource type="Script" path="res://Scripts/WorldBootstrap.cs" id="4_world"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape_player"]
 radius = 0.38
@@ -63,3 +64,6 @@ script = ExtResource("2_controls")
 
 [node name="SurvivalStats" type="Node" parent="."]
 script = ExtResource("3_survival")
+
+[node name="WorldBootstrap" type="Node3D" parent="."]
+script = ExtResource("4_world")
