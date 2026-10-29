@@ -32,7 +32,7 @@ jobs:
           unzip -q godot.zip -d godot-bin
           echo "Files extracted from Godot archive:"
           find godot-bin -maxdepth 2 -type f -printf '%p\n'
-          GODOT_BIN="$(find "$PWD/godot-bin" -type f -name 'Godot*' ! -name '*.so' | head -n 1)"
+          GODOT_BIN="$(find "$PWD/godot-bin" -type f -name 'Godot*' ! -name '*.so' -print -quit)"
           if [ -z "$GODOT_BIN" ]; then
             echo "::error::Could not find the Godot executable in the downloaded archive."
             exit 1
