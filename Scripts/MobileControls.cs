@@ -60,13 +60,13 @@ public partial class MobileControls : CanvasLayer
         _stickBase.AddChild(_stickKnob);
 
         var interact = MakeButton(root, "InteractButton", "USE", new Vector2(-104, -178), new Vector2(-24, -98), 1, 1);
-        interact.Pressed += () => InteractRequested?.Invoke();
+        interact.Pressed += () => EmitSignal(SignalName.InteractRequested);
 
         var crouch = MakeButton(root, "CrouchButton", "↓", new Vector2(-184, -118), new Vector2(-112, -46), 1, 1);
         crouch.Pressed += () => CrouchToggled = !CrouchToggled;
 
         _jumpButton = MakeButton(root, "JumpButton", "↑", new Vector2(-100, -96), new Vector2(-20, -16), 1, 1);
-        _jumpButton.Pressed += () => JumpRequested?.Invoke();
+        _jumpButton.Pressed += () => EmitSignal(SignalName.JumpRequested);
 
         var hint = new Label
         {
