@@ -77,31 +77,26 @@ jobs:
           set -euo pipefail
           "$GODOT_BIN" --headless --editor --path . --quit
 
-      - name: Install Android build template
-        shell: bash
-        run: |
-          set -euo pipefail
-          # This is an editor operation; run it in headless editor mode and
-          # retain verbose output so any template-install failure is diagnosable.
-          if ! timeout 180s "$GODOT_BIN" --headless --editor --path . --install-android-build-template --quit --verbose 2>&1 | tee android-template-install.log; then
-            echo "::error::Godot Android build-template installation failed."
-            tail -n 100 android-template-install.log || true
-            exit 1
-          fi
-          echo "Installed Android template files:"
-          find android -maxdepth 3 -type f -print | sort | head -n 80
-          if [ ! -f android/build/build.gradle ]; then
-            echo "::error::Expected android/build/build.gradle was not created."
-            exit 1
-          fi
-
-      - name: Export test APK
+      - name: Export test APK (install Android template if needed)
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p build
-          timeout 300s "$GODOT_BIN" --headless --path . --export-debug "Android" build/StrandedDeep-test.apk
-          test -s build/StrandedDeep-test.apk
+          # Godot documents --install-android-build-template as an option used
+          # together with --export-debug/--export-release, not as a standalone
+          # editor command. Keep the full export log so failures are actionable.
+          if ! timeout 600s "$GODOT_BIN" --headless --path . --install-android-build-template --export-debug "Android" build/StrandedDeep-test.apk --verbose 2>&1 | tee android-export.log; then
+            echo "::error::Godot Android APK export failed."
+            tail -n 120 android-export.log || true
+            exit 1
+          fi
+          if [ ! -s build/StrandedDeep-test.apk ]; then
+            echo "::error::Godot finished without creating a non-empty APK."
+            tail -n 120 android-export.log || true
+            exit 1
+          fi
+          echo "APK created:"
+          ls -lh build/StrandedDeep-test.apk
 
       - name: Upload Android test APK
         uses: actions/upload-artifact@v4
