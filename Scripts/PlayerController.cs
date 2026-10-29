@@ -16,6 +16,7 @@ public partial class PlayerController : CharacterBody3D
     private Camera3D? _camera;
     private MobileControls? _mobileControls;
     private bool _jumpRequested;
+    private bool _isCrouching;
     private float _cameraPitch;
 
     public override void _Ready()
@@ -26,13 +27,19 @@ public partial class PlayerController : CharacterBody3D
         _mobileControls = GetTree().Root.FindChild("MobileControls", true, false) as MobileControls;
 
         if (_mobileControls != null)
+        {
             _mobileControls.JumpRequested += OnJumpRequested;
+            _mobileControls.CrouchChanged += OnCrouchChanged;
+        }
     }
 
     public override void _ExitTree()
     {
         if (_mobileControls != null)
+        {
             _mobileControls.JumpRequested -= OnJumpRequested;
+            _mobileControls.CrouchChanged -= OnCrouchChanged;
+        }
     }
 
     public override void _UnhandledInput(InputEvent @event)
@@ -48,8 +55,9 @@ public partial class PlayerController : CharacterBody3D
             input = _mobileControls.MovementInput;
 
         Vector3 direction = (GlobalTransform.Basis * new Vector3(input.X, 0.0f, input.Y)).Normalized();
+        float currentMoveSpeed = _isCrouching ? MoveSpeed * 0.55f : MoveSpeed;
         if (direction != Vector3.Zero)
-            Velocity = new Vector3(direction.X * MoveSpeed, Velocity.Y, direction.Z * MoveSpeed);
+            Velocity = new Vector3(direction.X * currentMoveSpeed, Velocity.Y, direction.Z * currentMoveSpeed);
         else
             Velocity = new Vector3(0.0f, Velocity.Y, 0.0f);
 
@@ -87,4 +95,14 @@ public partial class PlayerController : CharacterBody3D
     }
 
     private void OnJumpRequested() => _jumpRequested = true;
+
+    private void OnCrouchChanged(bool isCrouching)
+    {
+        _isCrouching = isCrouching;
+        if (_cameraPivot != null)
+        {
+            float height = _isCrouching ? 1.05f : 1.55f;
+            _cameraPivot.Position = new Vector3(0.0f, height, 0.0f);
+        }
+    }
 }
