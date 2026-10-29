@@ -19,8 +19,7 @@ public partial class MobileControls : CanvasLayer
     private bool _stickActive;
     private int _stickTouch = -1;
     private int _lookTouch = -1;
-    private Vector2 _stickCenter;
-    private const float StickRadius = 58.0f;
+        private const float StickRadius = 58.0f;
 
     public override void _Ready()
     {
@@ -46,15 +45,14 @@ public partial class MobileControls : CanvasLayer
         root.AddChild(_lookArea);
         _lookArea.GuiInput += OnLookInput;
 
-        _stickBase = MakeCircle("JoystickBase", new Vector2(28, -178), new Vector2(164, -14), new Color(0.06f, 0.09f, 0.11f, 0.48f));
+        _stickBase = MakeCircle("JoystickBase", new Vector2(28, -164), new Vector2(164, -28), new Color(0.06f, 0.09f, 0.11f, 0.48f));
         _stickBase.AnchorLeft = 0;
         _stickBase.AnchorRight = 0;
         _stickBase.AnchorTop = 1;
         _stickBase.AnchorBottom = 1;
         root.AddChild(_stickBase);
         _stickBase.GuiInput += OnStickInput;
-        _stickCenter = new Vector2(68, 68);
-
+        
         _stickKnob = MakeCircle("JoystickKnob", new Vector2(39, 39), new Vector2(97, 97), new Color(0.78f, 0.86f, 0.88f, 0.62f));
         _stickKnob.MouseFilter = Control.MouseFilterEnum.Ignore;
         _stickBase.AddChild(_stickKnob);
