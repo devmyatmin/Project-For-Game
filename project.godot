@@ -14,3 +14,4 @@ run/main_scene="res://Scenes/Main.tscn"
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
