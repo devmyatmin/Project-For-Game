@@ -67,9 +67,6 @@ jobs:
       - name: Import project and generate C# bindings
         run: '"$GODOT_BIN" --headless --editor --path . --quit'
 
-      - name: Install Android Gradle build template
-        run: '"$GODOT_BIN" --headless --editor --path . --install-android-build-template --quit'
-
       - name: Build C# project
         run: dotnet build StrandedDeep.csproj --configuration Debug
 
@@ -78,7 +75,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p build
-          "$GODOT_BIN" --headless --path . --export-debug "Android" build/StrandedDeep-test.apk
+          "$GODOT_BIN" --headless --path . --install-android-build-template --export-debug "Android" build/StrandedDeep-test.apk
 
       - name: Upload Android test APK
         uses: actions/upload-artifact@v4
