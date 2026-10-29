@@ -5,4 +5,13 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0-ios</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
+
+  <!-- Keep Unity source folders as reference only; do not compile them into the Godot port. -->
+  <ItemGroup>
+    <Compile Remove="Player_Controller/**/*.cs" />
+    <Compile Remove="Survival_Systems/**/*.cs" />
+    <Compile Remove="Inventory_Items/**/*.cs" />
+    <Compile Remove="Save_Load/**/*.cs" />
+    <Compile Remove="World_Island/**/*.cs" />
+  </ItemGroup>
 </Project>
