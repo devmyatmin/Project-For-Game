@@ -261,7 +261,9 @@ public partial class MobileControls : CanvasLayer
 
     private void UpdateStick(Vector2 screenPosition)
     {
-        Vector2 local = screenPosition;
+        // InputEvent positions are viewport-space; convert them before comparing
+        // against the joystick Control's local center (important on scaled mobile HUDs).
+        Vector2 local = _stickBase.GetGlobalTransformWithCanvas().AffineInverse() * screenPosition;
         Vector2 center = _stickBase.Size * 0.5f;
         Vector2 offset = local - center;
         if (offset.Length() > StickRadius) offset = offset.Normalized() * StickRadius;
