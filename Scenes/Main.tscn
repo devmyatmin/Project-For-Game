@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_player"]
-[ext_resource type="Script" path="res://Scripts/MobileControls.cs" id="2_controls"]
-[ext_resource type="Script" path="res://Scripts/SurvivalStats.cs" id="3_survival"]
-[ext_resource type="Script" path="res://Scripts/WorldBootstrap.cs" id="4_world"]
+[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_player"]
+[ext_resource type="Script" path="res://Scripts/MobileControls.gd" id="2_controls"]
+[ext_resource type="Script" path="res://Scripts/SurvivalStats.gd" id="3_survival"]
+[ext_resource type="Script" path="res://Scripts/WorldBootstrap.gd" id="4_world"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape_player"]
 radius = 0.38
