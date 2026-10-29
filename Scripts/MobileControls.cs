@@ -16,6 +16,7 @@ public partial class MobileControls : CanvasLayer
     private Control _stickKnob = null!;
     private Control _lookArea = null!;
     private Button _jumpButton = null!;
+    private Label _statusLabel = null!;
     private bool _stickActive;
     private int _stickTouch = -1;
     private int _lookTouch = -1;
@@ -88,7 +89,7 @@ public partial class MobileControls : CanvasLayer
         hint.AddThemeFontSizeOverride("font_size", 18);
         root.AddChild(hint);
 
-        var status = new Label
+        _statusLabel = new Label
         {
             Name = "SurvivalStatus",
             Text = "♥ 100     WATER 100     FOOD 100",
@@ -102,14 +103,20 @@ public partial class MobileControls : CanvasLayer
             OffsetBottom = 76,
             MouseFilter = Control.MouseFilterEnum.Ignore
         };
-        status.AddThemeColorOverride("font_color", new Color(0.91f, 0.94f, 0.88f, 0.8f));
-        status.AddThemeFontSizeOverride("font_size", 12);
-        root.AddChild(status);
+        _statusLabel.AddThemeColorOverride("font_color", new Color(0.91f, 0.94f, 0.88f, 0.8f));
+        _statusLabel.AddThemeFontSizeOverride("font_size", 12);
+        root.AddChild(_statusLabel);
     }
 
     [Signal] public delegate void JumpRequestedEventHandler();
     [Signal] public delegate void InteractRequestedEventHandler();
     [Signal] public delegate void CrouchChangedEventHandler(bool isCrouching);
+
+    public void SetSurvivalStatus(float health, float water, float food)
+    {
+        if (_statusLabel != null)
+            _statusLabel.Text = $"♥ {Mathf.RoundToInt(health)}   WATER {Mathf.RoundToInt(water)}   FOOD {Mathf.RoundToInt(food)}";
+    }
 
     public Vector2 ConsumeLookDelta()
     {
