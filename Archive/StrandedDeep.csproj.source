@@ -1,0 +1,18 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0-android</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net9.0-ios</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <!-- Keep Unity source folders as reference only; do not compile them into the Godot port. -->
+  <ItemGroup>
+    <Compile Remove="Player_Controller/**/*.cs" />
+    <Compile Remove="Survival_Systems/**/*.cs" />
+    <Compile Remove="Inventory_Items/**/*.cs" />
+    <Compile Remove="Save_Load/**/*.cs" />
+    <Compile Remove="World_Island/**/*.cs" />
+    <Compile Remove="VisualAssets/**/*.cs" />
+  </ItemGroup>
+</Project>
