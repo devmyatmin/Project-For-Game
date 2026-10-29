@@ -1,4 +1,4 @@
-name: Godot C# Build
+name: Godot Android GDScript Build
 
 on:
   workflow_dispatch:
@@ -12,16 +12,11 @@ permissions:
 
 jobs:
   build:
-    name: Build Godot 4.5.1 .NET project
+    name: Build Godot 4.5.1 Android APK (GDScript)
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Set up .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
 
       - name: Set up Java for Android export
         uses: actions/setup-java@v4
@@ -51,14 +46,14 @@ jobs:
           export/android/android_sdk_path = "$ANDROID_SDK_ROOT"
           EOF
 
-      - name: Download Godot 4.5.1 .NET
+      - name: Download Godot 4.5.1 standard editor
         shell: bash
         run: |
           set -euo pipefail
-          wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_mono_linux_x86_64.zip -O godot.zip
+          wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_linux.x86_64.zip -O godot.zip
           mkdir -p godot-bin
           unzip -q godot.zip -d godot-bin
-          GODOT_BIN="$(find "$PWD/godot-bin" -type f -name 'Godot_v4.5.1-stable_mono_linux.x86_64' -print -quit)"
+          GODOT_BIN="$(find "$PWD/godot-bin" -type f -name 'Godot_v4.5.1-stable_linux.x86_64' -print -quit)"
           if [ -z "$GODOT_BIN" ]; then
             echo "::error::Could not find the Godot executable in the downloaded archive."
             exit 1
@@ -67,28 +62,34 @@ jobs:
           echo "GODOT_BIN=$GODOT_BIN" >> "$GITHUB_ENV"
           "$GODOT_BIN" --version
 
-      - name: Install Godot .NET export templates
+      - name: Install matching Godot export templates
         shell: bash
         run: |
           set -euo pipefail
-          wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_mono_export_templates.tpz -O export_templates.tpz
-          mkdir -p /tmp/godot-templates "$HOME/.local/share/godot/export_templates/4.5.1.stable.mono"
+          wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_export_templates.tpz -O export_templates.tpz
+          mkdir -p /tmp/godot-templates "$HOME/.local/share/godot/export_templates/4.5.1.stable"
           unzip -q export_templates.tpz -d /tmp/godot-templates
-          cp -a /tmp/godot-templates/templates/. "$HOME/.local/share/godot/export_templates/4.5.1.stable.mono/"
+          cp -a /tmp/godot-templates/templates/. "$HOME/.local/share/godot/export_templates/4.5.1.stable/"
 
-      - name: Import project and generate C# bindings
-        run: '"$GODOT_BIN" --headless --editor --path . --quit'
+      - name: Import project and validate GDScript
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$GODOT_BIN" --headless --editor --path . --quit
 
-      - name: Build C# project
-        run: dotnet build StrandedDeep.csproj --configuration Debug
+      - name: Install Android build template
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$GODOT_BIN" --headless --path . --install-android-build-template
+          test -f android/build/build.gradle
 
-      - name: Install Android build template and export test APK
+      - name: Export test APK
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p build
-          timeout 300s "$GODOT_BIN" --headless --path . --install-android-build-template --export-debug "Android" build/StrandedDeep-test.apk
-          test -f android/build/build.gradle
+          timeout 300s "$GODOT_BIN" --headless --path . --export-debug "Android" build/StrandedDeep-test.apk
           test -s build/StrandedDeep-test.apk
 
       - name: Upload Android test APK
