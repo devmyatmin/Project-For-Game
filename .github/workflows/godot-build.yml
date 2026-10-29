@@ -23,6 +23,18 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Set up Java for Android export
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK components
+        run: sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
       - name: Download Godot 4.5.1 .NET
         shell: bash
         run: |
@@ -41,8 +53,32 @@ jobs:
           echo "GODOT_BIN=$GODOT_BIN" >> "$GITHUB_ENV"
           "$GODOT_BIN" --version
 
+      - name: Install Godot export templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_export_templates.tpz -O export_templates.tpz
+          mkdir -p /tmp/godot-templates "$HOME/.local/share/godot/export_templates/4.5.1.stable"
+          unzip -q export_templates.tpz -d /tmp/godot-templates
+          cp -a /tmp/godot-templates/templates/. "$HOME/.local/share/godot/export_templates/4.5.1.stable/"
+
       - name: Import project and generate C# bindings
         run: '"$GODOT_BIN" --headless --editor --path . --quit'
 
       - name: Build C# project
         run: dotnet build StrandedDeep.csproj --configuration Debug
+
+      - name: Export Android test APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          "$GODOT_BIN" --headless --path . --export-debug "Android" build/StrandedDeep-test.apk
+
+      - name: Upload Android test APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: stranded-deep-android-test
+          path: build/StrandedDeep-test.apk
+          if-no-files-found: error
+          retention-days: 7
