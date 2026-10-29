@@ -24,15 +24,25 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Download Godot 4.5.1 .NET
+        shell: bash
         run: |
+          set -euo pipefail
           wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_mono_linux_x86_64.zip -O godot.zip
+          mkdir -p godot-bin
           unzip -q godot.zip -d godot-bin
-          chmod +x godot-bin/Godot_v4.5.1-stable_mono_linux.x86_64
-          mv godot-bin/Godot_v4.5.1-stable_mono_linux.x86_64 godot-bin/godot
-          echo "$PWD/godot-bin" >> "$GITHUB_PATH"
+          echo "Files extracted from Godot archive:"
+          find godot-bin -maxdepth 2 -type f -printf '%p\n'
+          GODOT_BIN="$(find "$PWD/godot-bin" -type f -name 'Godot*' ! -name '*.so' | head -n 1)"
+          if [ -z "$GODOT_BIN" ]; then
+            echo "::error::Could not find the Godot executable in the downloaded archive."
+            exit 1
+          fi
+          chmod +x "$GODOT_BIN"
+          echo "GODOT_BIN=$GODOT_BIN" >> "$GITHUB_ENV"
+          "$GODOT_BIN" --version
 
       - name: Import project and generate C# bindings
-        run: godot --headless --editor --path . --quit
+        run: '"$GODOT_BIN" --headless --editor --path . --quit'
 
       - name: Build C# project
         run: dotnet build StrandedDeep.csproj --configuration Debug
