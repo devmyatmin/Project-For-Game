@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 /// <summary>
 /// Godot-native single-player controller. Supports keyboard input for testing
@@ -18,6 +19,7 @@ public partial class PlayerController : CharacterBody3D
     private bool _jumpRequested;
     private bool _isCrouching;
     private float _cameraPitch;
+    private readonly Dictionary<string, int> _inventory = new();
 
     public override void _Ready()
     {
@@ -30,6 +32,7 @@ public partial class PlayerController : CharacterBody3D
         {
             _mobileControls.JumpRequested += OnJumpRequested;
             _mobileControls.CrouchChanged += OnCrouchChanged;
+            _mobileControls.InteractRequested += OnInteractRequested;
         }
     }
 
@@ -39,6 +42,7 @@ public partial class PlayerController : CharacterBody3D
         {
             _mobileControls.JumpRequested -= OnJumpRequested;
             _mobileControls.CrouchChanged -= OnCrouchChanged;
+            _mobileControls.InteractRequested -= OnInteractRequested;
         }
     }
 
@@ -95,6 +99,32 @@ public partial class PlayerController : CharacterBody3D
     }
 
     private void OnJumpRequested() => _jumpRequested = true;
+
+    private void OnInteractRequested()
+    {
+        if (_camera == null)
+            return;
+
+        Vector3 from = _camera.GlobalPosition;
+        Vector3 to = from - _camera.GlobalBasis.Z * 3.5f;
+        var query = PhysicsRayQueryParameters3D.Create(from, to);
+        query.CollideWithAreas = true;
+        var hit = GetWorld3D().DirectSpaceState.IntersectRay(query);
+
+        if (hit.Count == 0 || !hit.ContainsKey("collider"))
+            return;
+
+        if (hit["collider"].AsGodotObject() is not CollectibleResource pickup)
+            return;
+
+        string itemId = pickup.ItemId;
+        _inventory[itemId] = _inventory.GetValueOrDefault(itemId, 0) + pickup.Amount;
+        string itemName = pickup.DisplayName;
+        int amount = pickup.Amount;
+
+        if (pickup.TryCollect())
+            _mobileControls?.SetInventoryStatus(itemName, amount, _inventory[itemId]);
+    }
 
     private void OnCrouchChanged(bool isCrouching)
     {
