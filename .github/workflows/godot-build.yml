@@ -81,7 +81,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          "$GODOT_BIN" --headless --path . --install-android-build-template
+          # The template install command can otherwise leave the headless editor
+          # running without further log output. Bound the step and force exit.
+          timeout 180s "$GODOT_BIN" --headless --path . --install-android-build-template --quit --verbose
           test -f android/build/build.gradle
 
       - name: Export test APK
