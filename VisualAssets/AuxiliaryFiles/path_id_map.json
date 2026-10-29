@@ -1,0 +1,3068 @@
+{
+  "Files": [
+    {
+      "Name": "cab-cd860b2f1d94c5a518bcad0a3e5ca7e8",
+      "Assets": [
+        {
+          "PathID": -6058634267775945724,
+          "Name": "WatchScreenViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -5755350681981302373,
+          "Name": "TextMeshProUGUI",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -5392852106782294089,
+          "Name": "ContentSizeFitter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3193512799620971514,
+          "Name": "TMPLabelViewAdapter",
+          "Type": "MonoScript"
+        }
+      ]
+    },
+    {
+      "Name": "cab-72b1dc76f835e51f508afbd70a61a829",
+      "Assets": [
+        {
+          "PathID": -8826248144273319766,
+          "Name": "ScrollRect",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -8091456346061954500,
+          "Name": "HorizontalLayoutGroup",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7977407359137476549,
+          "Name": "Watch_EMISS",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7935799828248991566,
+          "Name": "Metropolis-Regular FIGS Supplemental SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7784299604066853536,
+          "Name": "Mask",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7592177170961540089,
+          "Name": "UImageViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7030229213176759517,
+          "Name": "Image",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -6598038869112286412,
+          "Name": "Vital_SPF_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6058634267775945724,
+          "Name": "WatchScreenViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -5896051288877673282,
+          "Name": "WhitePixel",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5755350681981302373,
+          "Name": "TextMeshProUGUI",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -5392852106782294089,
+          "Name": "ContentSizeFitter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -5022016753748499155,
+          "Name": "USliderViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -4964995076320756520,
+          "Name": "UISprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4911020473880467736,
+          "Name": "Border",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4893686705980114534,
+          "Name": "Skills_Craftsmanship_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4676218963886023392,
+          "Name": "Vital_Thirst_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4500215954965801107,
+          "Name": "SFDigitalReadout-Heavy SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4336199089819816756,
+          "Name": "TMPBeepiWatchViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -4047837396933160000,
+          "Name": "LiberationSans SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3782540443423452209,
+          "Name": "OpenSans-ExtraBold Basic Cyrillic SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3752965030846262843,
+          "Name": "Flasher",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3339187146975909052,
+          "Name": "Vital_Health_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3193512799620971514,
+          "Name": "TMPLabelViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1239322396798341484,
+          "Name": "FemaleWatch",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -474410898216789234,
+          "Name": "LiberationSans SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -256289808610202091,
+          "Name": "Skills_Physical_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -213401692241550960,
+          "Name": "Metropolis-Bold FIGS Supplemental SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -40982575085044794,
+          "Name": "Skills_Harvesting_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 348253180598357110,
+          "Name": "VerticalLayoutGroup",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 425168875757824589,
+          "Name": "LayoutElement",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 560532488646354119,
+          "Name": "TMP_FontAsset",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1675681290874083231,
+          "Name": "Watch_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1737175191530799030,
+          "Name": "Sprite_Heatwave",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1795969311070811750,
+          "Name": "Watch_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1846948418751999578,
+          "Name": "Metropolis-Regular SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2132588390122686246,
+          "Name": "Vital_Hunger_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2366043669590847779,
+          "Name": "Slider",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 3249760546994869175,
+          "Name": "Watch_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3993194172907790014,
+          "Name": "Skills_Hunting_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5247741672040471473,
+          "Name": "Metropolis-Bold SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5754750711029963376,
+          "Name": "Skills_Cooking_Sprite",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5900061902493089219,
+          "Name": "Font Texture",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6572346919703668699,
+          "Name": "Sprite_Temperature",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6684746604010191648,
+          "Name": "Sprite_Bars",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6813197814569518698,
+          "Name": "OpenSans-Regular Basic Cyrillic SDF Atlas",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7616642779755668066,
+          "Name": "Watch",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 7655550168112326174,
+          "Name": "Localizer",
+          "Type": "MonoScript"
+        }
+      ]
+    },
+    {
+      "Name": "cab-b713c4afcf1a2c7197e96acf299a9e17",
+      "Assets": [
+        {
+          "PathID": -9111718428531723351,
+          "Name": "Furniture_2",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -9094036055208143594,
+          "Name": "Wing",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -9045586880324024855,
+          "Name": "Chair_DIF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8959622178992544500,
+          "Name": "survivor_female_body_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8904403245379019898,
+          "Name": "Chair_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8744073587771916629,
+          "Name": "survivor_female_body_spec",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8683901158949457599,
+          "Name": "survivor_head_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8539517474380986773,
+          "Name": "Serving Tray",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8362760034793637111,
+          "Name": "Intro_Jet_Creak",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -8322439007016455554,
+          "Name": "survivor_eyes",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8252449683027423178,
+          "Name": "survivor_female_body_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8196414401980299142,
+          "Name": "Intro_Fire_Large",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -8191230013443052918,
+          "Name": "survivor_shoes",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8078287687870316794,
+          "Name": "85mmflare",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7919173358000587620,
+          "Name": "survivor_hair",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7836801879782906568,
+          "Name": "Wood_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7403479120861305990,
+          "Name": "Sparks\u0026Flare",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7176239744462732341,
+          "Name": "paper_1",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7076829773314690210,
+          "Name": "WaterSplash_2",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6694070984476972804,
+          "Name": "Cockpit_EMIS",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6686390471191078407,
+          "Name": "Smoke_D",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6390155449232058678,
+          "Name": "survivor_neck",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6256915842411656943,
+          "Name": "eyelashes",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6231270106748820205,
+          "Name": "survivor_lowerBody_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6029531639908331409,
+          "Name": "survivor_pants",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5993356216262169181,
+          "Name": "Turbine",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5981388307100390813,
+          "Name": "survivor_female_hands_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5978797896217331350,
+          "Name": "survivor_hands",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5750254377159061816,
+          "Name": "Cokpit_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5750013664412833778,
+          "Name": "Jet Exterior",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5709386230815671307,
+          "Name": "Tail",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5511639211595314924,
+          "Name": "survivor_lowerBody_ao",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5492804326126983647,
+          "Name": "Jet_Interior",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5123205448537944097,
+          "Name": "Intro_Table",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -5049114645378413564,
+          "Name": "survivor_head_metalness",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4856255666307265721,
+          "Name": "Glass",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -4667506055955432785,
+          "Name": "Intro_Chair_Destroyed",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -4615491221502803497,
+          "Name": "AudioMixerFixer",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -4599742220702970302,
+          "Name": "Intro_BeltWarning",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -4409295143111214615,
+          "Name": "Carpet_DIF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4219601140077773798,
+          "Name": "Laptop_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3991970756858389757,
+          "Name": "Intro_Crashing",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -3971604753722071296,
+          "Name": "survivor_hair_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3924096849632953247,
+          "Name": "survivor_lowerBody_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3783666835322913941,
+          "Name": "Glass_Cup",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3512411972190921256,
+          "Name": "skin_detail_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3333691728872557208,
+          "Name": "Laptop_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3332655219664881704,
+          "Name": "Cocktail_Shaker",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3245109759152861159,
+          "Name": "Intro_Wakeup",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -3080480535815309938,
+          "Name": "survivor_upperBody_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2968186380368174140,
+          "Name": "Interior1",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2920258324930451368,
+          "Name": "survivor_female_body_ao",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2902936403122311133,
+          "Name": "Cokpit_Diff",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2862374224390746266,
+          "Name": "Chair_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2830718364064958073,
+          "Name": "Remote",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2732432488566390608,
+          "Name": "Pilot_Body_Diff",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2721500308232680266,
+          "Name": "WoodGrain",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2571835555532729153,
+          "Name": "survivor_upperBody_metalness",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2302230442349211760,
+          "Name": "CocktailGlass",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2070284920280704618,
+          "Name": "Jet Props",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2009533544443232544,
+          "Name": "survivor_head",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1903473625205636476,
+          "Name": "PrivateJet",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1101817564468454414,
+          "Name": "Jet Exterior 1",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1002029548250815179,
+          "Name": "Intro_Crash",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -856441230559263821,
+          "Name": "Jet_Interior",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -782088151422182874,
+          "Name": "Metal_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -602560604087054016,
+          "Name": "FireFlame_01",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -434980092005727035,
+          "Name": "MSC_Endgame_Cockpit_Crash",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -402931649219731493,
+          "Name": "Glass_Cup_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -140601708827846203,
+          "Name": "RubberDuck_Normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -116089241213947968,
+          "Name": "Pilot_Body_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 140477661708595587,
+          "Name": "survivor_female_hair_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 141932844429070411,
+          "Name": "Laptop",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 324169299216513714,
+          "Name": "survivor_hair",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 357765890120043787,
+          "Name": "survivor_tie",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 460322590354366085,
+          "Name": "Trolly",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 464389340101931620,
+          "Name": "Glass_Cup_GLOSS",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 509283686381794449,
+          "Name": "Jet Props_Spec",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 632101787654179485,
+          "Name": "survivor_female_hair_ao",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 749382989373742127,
+          "Name": "Engine",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 787153972843615404,
+          "Name": "Pilot_Skin_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1026541652018722969,
+          "Name": "RubberDuck",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1243936907437483578,
+          "Name": "Jet_Interior_Collider",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1325883820168125191,
+          "Name": "furniture2",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1403437663219175076,
+          "Name": "WineBottle",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1518693782091315854,
+          "Name": "survivor_female_hair_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1560368892933339855,
+          "Name": "Intro_Chair",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1736384409042799657,
+          "Name": "WineGlass",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1945961541382069873,
+          "Name": "Newspaper",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2107478633437367338,
+          "Name": "FlightTrackerScreen",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2181891931773697418,
+          "Name": "Cup",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2340681241486885421,
+          "Name": "survivor_upperBody_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2358850112021239686,
+          "Name": "Jet_Exterior",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2406474414492891106,
+          "Name": "TexScroll",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2552786248278105483,
+          "Name": "survivor_head_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2590599168925861458,
+          "Name": "survivor_moustache",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2663111648519930071,
+          "Name": "Jet_Interior_Collider",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2709378864615377885,
+          "Name": "survivor_female_hands_gloss",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2865956707370889230,
+          "Name": "survivor_female_hands_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3242894074820695446,
+          "Name": "Pilot",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3385990191346351491,
+          "Name": "Jet_Interior_HoleFilled",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3386255117472566828,
+          "Name": "survivor_beard_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3528058405263423975,
+          "Name": "survivor_shirt",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3548758314376456184,
+          "Name": "Intro_Jet_Ambience",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 3643823857397804532,
+          "Name": "AfterExplosion_A",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3712275900519990065,
+          "Name": "Interior1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3712464065459698360,
+          "Name": "Ashtray",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3727400325572312519,
+          "Name": "survivor_eyes",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3776963681166650113,
+          "Name": "survivor_corneas",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3900609137206481594,
+          "Name": "JetLight_Illuminated",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4111201409529927204,
+          "Name": "frays",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4170114447848621259,
+          "Name": "survivor_lowerBody_spec",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4314701468717910693,
+          "Name": "PrivateJetTutorial",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 4500144607994466252,
+          "Name": "female_skin_detail_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4505242671047308460,
+          "Name": "Cockpit",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4775216716725117158,
+          "Name": "Fire_Sprites_v1",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4805549944153630725,
+          "Name": "RubberDuck_Emissive",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4907215369676817131,
+          "Name": "survivor_eyeLash",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4919973362039840916,
+          "Name": "T.V Screen",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5281930138922683342,
+          "Name": "Pillow",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5300863657812057964,
+          "Name": "RubberDuck_Specular",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5532360545519138677,
+          "Name": "survivor_beard",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5898520191367838984,
+          "Name": "Lid",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5996185913280359658,
+          "Name": "FireBall_02",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6048299894316515209,
+          "Name": "Plane",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6124684037640858562,
+          "Name": "Carpet_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6268937341008484925,
+          "Name": "survivor_female_head_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6329652735693940540,
+          "Name": "survivor_head",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6376122546464702770,
+          "Name": "survivor_female_head_normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6380802314109370632,
+          "Name": "Pen",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6616824320111221674,
+          "Name": "RubberDuck_Diffuse",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6636248856436319741,
+          "Name": "Intro_Turbulence",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 6919525642850683099,
+          "Name": "Pilot_Skin_Diff",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7072812982633513838,
+          "Name": "survivor_eyebrows",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 7157695943498015680,
+          "Name": "RotationLimitHinge",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 7275224128587195438,
+          "Name": "Smokes",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7285565437961565354,
+          "Name": "survivor_female_head_gloss",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7519162021037698881,
+          "Name": "survivor_pants",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 7616642779755668066,
+          "Name": "Watch",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 7821165509123847361,
+          "Name": "WindowRain",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7874809367428807589,
+          "Name": "SmokeBlackHeavy",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8121399094529712952,
+          "Name": "Intro_Jet_Engine",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 8141276550752363556,
+          "Name": "Glasses",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 8143363648578242900,
+          "Name": "survivor_shirt",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 8145142089829978835,
+          "Name": "FireFlicker",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 8323386922886520108,
+          "Name": "Intro_Explosion",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 8366023105823929105,
+          "Name": "RubberDuck_Height",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8525793013856614296,
+          "Name": "WaterSplash_1",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8594463441549331925,
+          "Name": "Interior1_Spec",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8723532280367328791,
+          "Name": "Box",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 8759004637205882131,
+          "Name": "Falloff",
+          "Type": "Texture2D"
+        }
+      ]
+    },
+    {
+      "Name": "cab-274bf3f3846c5c146a254ee198cd5955",
+      "Assets": [
+        {
+          "PathID": -8317356308454402539,
+          "Name": "Boss_Squid_Tentacle",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -8250290559579815900,
+          "Name": "Player_Ledge",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -8169495352353467035,
+          "Name": "Highlighter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7937249448425088253,
+          "Name": "Buoy_Loop",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -7193898859201294613,
+          "Name": "MovingPlatform",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7022175340304854526,
+          "Name": "Squid_Rig_Final:RETOPO",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6309446232116516100,
+          "Name": "squid_boss_take_damage_1",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -4492123437125730597,
+          "Name": "BuoyMultiplayerSync",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -4292656824461271801,
+          "Name": "Squid_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3904421573996441557,
+          "Name": "LodControllerChild",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3429495768105846693,
+          "Name": "Buoy",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3409899134799288647,
+          "Name": "BUOY_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3096814156816618917,
+          "Name": "Squid_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1868274146531905932,
+          "Name": "Boss_Squid",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1660305428452842650,
+          "Name": "Squid_Detail",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1277107589836113895,
+          "Name": "squid_boss_attack_pull",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -1135796508972225063,
+          "Name": "Squid_Buoy_Bell",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -1079309934978242194,
+          "Name": "Boss_Squid_Environment",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1049732652020474019,
+          "Name": "InteractiveMissionGoal",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1014772641711830054,
+          "Name": "squid_boss_attack_bite",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -320632367989275290,
+          "Name": "Selecting",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 5210825763400675,
+          "Name": "Squid_AO",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 544503825278120890,
+          "Name": "Squid_Tentacle",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 547812330528197810,
+          "Name": "Shootable",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 982533550175936294,
+          "Name": "Piscus_Animation",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1217256352321599900,
+          "Name": "BoltEntity",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1551652983656392914,
+          "Name": "InteractiveObject_GOAL",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2572643879070975561,
+          "Name": "Squid_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2667183684304761730,
+          "Name": "squid_boss_attack_push",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 3319447071607281531,
+          "Name": "BUOY_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4442655829631866360,
+          "Name": "Buoyancy",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 4723986896624890635,
+          "Name": "BUOY_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4859009584201782572,
+          "Name": "squid_boss_move",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 5212207393750892847,
+          "Name": "squid_boss_attack_attempt",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 5231434201326414654,
+          "Name": "Buoy_Chain",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5336093695276852035,
+          "Name": "BossAudio",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 5491997772900801466,
+          "Name": "squid_boss_take_damage_2",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 7647742548154935553,
+          "Name": "squid_boss_dies",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 8572207009262027554,
+          "Name": "squid_boss_take_damage_3",
+          "Type": "AudioClip"
+        }
+      ]
+    },
+    {
+      "Name": "cab-ac412b350193a8eaca3ef4dd28dabf2b",
+      "Assets": [
+        {
+          "PathID": -9144375247476948861,
+          "Name": "Great_White_Rig_Final:Great_White_Upper_Teeth_Mesh",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8757594590070326837,
+          "Name": "Details",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8728787446479185707,
+          "Name": "Great_White_Rig_Final:Great_White_Body_Mesh_Lod2",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8709485996425762443,
+          "Name": "boss_land_water",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -8169495352353467035,
+          "Name": "Highlighter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7194520780821842607,
+          "Name": "Net",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6805318620683994818,
+          "Name": "Dead_Whale_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6753855583863610441,
+          "Name": "Details_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6610023317571191832,
+          "Name": "shark_attack_3",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -5768521574057324945,
+          "Name": "GW_BOSS_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5716108556424189283,
+          "Name": "Details_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4693948007436258902,
+          "Name": "Dead_Whale_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4269045508928294583,
+          "Name": "Great_White_Shark_DetailNormal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3904421573996441557,
+          "Name": "LodControllerChild",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3430123954574835294,
+          "Name": "Net.1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2676592154750370123,
+          "Name": "Dead_Whale_AO",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1852406246974650381,
+          "Name": "Net_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1716436914057685416,
+          "Name": "boss_jump_water",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -1644717029416974226,
+          "Name": "Particle_Blood",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1395784681451980311,
+          "Name": "GW_BOSS_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1049732652020474019,
+          "Name": "InteractiveMissionGoal",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1049183005867526612,
+          "Name": "Great_White_Rig_Final:Great_White_Body_Mesh_Lod1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -320632367989275290,
+          "Name": "Selecting",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -259144943128032124,
+          "Name": "Details.1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1794795007636634,
+          "Name": "Collider",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 359684775399690303,
+          "Name": "shark_attack_4",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 547812330528197810,
+          "Name": "Shootable",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 594084230177364982,
+          "Name": "Dead_Whale_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 982533550175936294,
+          "Name": "Piscus_Animation",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1217256352321599900,
+          "Name": "BoltEntity",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1551652983656392914,
+          "Name": "InteractiveObject_GOAL",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2489989729400838893,
+          "Name": "Shark_Tracker",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3849682008515814284,
+          "Name": "GW_BOSS_DETAIL",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4289814301644977419,
+          "Name": "GW_BOSS_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4328671004850425284,
+          "Name": "Great_White_Rig_Final:Great_White_Upper_Teeth_Mesh_Lod1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4794855366996796164,
+          "Name": "Dead_Whale",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5254828813688144986,
+          "Name": "Particle_Blood_Chunk",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5336093695276852035,
+          "Name": "BossAudio",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 5361002421496054237,
+          "Name": "Whale_Tail",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6018902607460872048,
+          "Name": "Great_White_Rig_Final:Great_White_Body_Mesh",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6289973836469220923,
+          "Name": "shark_attack_2",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 6612937993274316444,
+          "Name": "shark_attack_1",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 7454299047981759734,
+          "Name": "Net_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8255965570578043041,
+          "Name": "Boss_Shark",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 8568984453757675807,
+          "Name": "shark_move",
+          "Type": "AudioClip"
+        }
+      ]
+    },
+    {
+      "Name": "cab-c9c1a1d56e45b4f40aec8ac42a562959",
+      "Assets": [
+        {
+          "PathID": -8709485996425762443,
+          "Name": "boss_land_water",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -8547520762105007495,
+          "Name": "Bones_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8169495352353467035,
+          "Name": "Highlighter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -8028397387483487207,
+          "Name": "Eel_AO",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6099274775250567909,
+          "Name": "Submarine_1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4898247432738232232,
+          "Name": "Eel_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4781635925299788420,
+          "Name": "eel_boss_take_damage_3",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -4136611854495486820,
+          "Name": "Submarine_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3586379376221361661,
+          "Name": "eel_boss_attack",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -3461597656214699234,
+          "Name": "eel_boss_take_damage_1",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -2561612878953450208,
+          "Name": "Submarine_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2277763777793912634,
+          "Name": "Bones_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1716436914057685416,
+          "Name": "boss_jump_water",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -1336967680675026439,
+          "Name": "Details",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1132449168804564780,
+          "Name": "Rust_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1049732652020474019,
+          "Name": "InteractiveMissionGoal",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -892274971235646974,
+          "Name": "eel_boss_movement",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -320632367989275290,
+          "Name": "Selecting",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 167768691745808006,
+          "Name": "Submarine",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 195929476369084927,
+          "Name": "Terrain_Detail",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 547812330528197810,
+          "Name": "Shootable",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 582814857808496916,
+          "Name": "Eel_Rig_Final:Eel_LOD1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 650901655711364091,
+          "Name": "Boss_Eel",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 818312399064519521,
+          "Name": "Terrain_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 982533550175936294,
+          "Name": "Piscus_Animation",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1074832523864496728,
+          "Name": "eel_boss_die",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 1217256352321599900,
+          "Name": "BoltEntity",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1311043656804184041,
+          "Name": "eel_boss_take_damage_2",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 1551652983656392914,
+          "Name": "InteractiveObject_GOAL",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1993447437621233567,
+          "Name": "Submarine_1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2688843804096336916,
+          "Name": "Submarine_Collider",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3076198021536822975,
+          "Name": "Submarine_1_AO",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3220597797450107708,
+          "Name": "Bones_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3473487600064877370,
+          "Name": "Submarine_1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3594270242616360943,
+          "Name": "Eel_Awaken",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 3745955318836347890,
+          "Name": "Eel_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3848638792486020222,
+          "Name": "Eel_Rig_Final:Eel_LOD2",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3849611158621599105,
+          "Name": "Barnacles_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4466340795900055023,
+          "Name": "Eel_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5336093695276852035,
+          "Name": "BossAudio",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 5710374371478037306,
+          "Name": "Submarine_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5763692048192291482,
+          "Name": "eel_boss_take_damage_4",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 6475942293577039939,
+          "Name": "Barnacles_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6622394679064267244,
+          "Name": "Rust_Spec",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6911515449807986464,
+          "Name": "Eel_Rig_Final:Eel_Mesh",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 7812658414477612201,
+          "Name": "Submarine_Terrain",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 8548379625805483001,
+          "Name": "Terrain_NRM",
+          "Type": "Texture2D"
+        }
+      ]
+    },
+    {
+      "Name": "cab-1a52a4f7b11e4cae0fc19d1342b0f583",
+      "Assets": [
+        {
+          "PathID": -9013041762014717776,
+          "Name": "Terrain_Sand_Wet_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -9006466237358293614,
+          "Name": "Propeller4",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8950303359793091127,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Pull_Stick",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8896477531252499175,
+          "Name": "AirCraft_Carrier_Debris",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8895357350692471938,
+          "Name": "tile_wires_electricPanel_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8839121736361646481,
+          "Name": "tile_wreck_fiberGlassRed_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8777657634452178113,
+          "Name": "SeaPlanePanells_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8764776640770082759,
+          "Name": "shipwreck_metal_nitt2_tile1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8652942893439226746,
+          "Name": "EndGame_ImpactExplosion",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8617529918097493067,
+          "Name": "tile_rust_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8607404063267900778,
+          "Name": "Carrier_LOD0",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8580069273726137392,
+          "Name": "tile_wreck_metal7_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8544043058108560475,
+          "Name": "Terrain_Grass_Dirt_PACK",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8490040341037409899,
+          "Name": "Fuel_Can_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -8406182160052438562,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Lever",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8361436599549009044,
+          "Name": "EndGame_PrivateJet",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -8169495352353467035,
+          "Name": "Highlighter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -8155531255711286273,
+          "Name": "LodController",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -8130045293902132188,
+          "Name": "SeaPlanePanells_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7811457574087630314,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Throttle",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7799273624453168684,
+          "Name": "Endgame_Cockpit_Launch",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -7784725516148945279,
+          "Name": "chairi_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7775703978735881664,
+          "Name": "doorPorthole_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7740549588145019873,
+          "Name": "tile_MetalPanel2_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7723219600423882051,
+          "Name": "WaterRefiller",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7592177170961540089,
+          "Name": "UImageViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -7562081161259552511,
+          "Name": "Rudder1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7505678728153855306,
+          "Name": "Anchor1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7431741091423871843,
+          "Name": "SeaPlanePedals_AO",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7413941043530165687,
+          "Name": "panouric_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7399219929723299635,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Cockpit_Glass",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7370042438265947202,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Rudder_Pedal",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7352311400018703262,
+          "Name": "chaira_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7338230396974351335,
+          "Name": "tile_carrier_rail_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7327659619919894548,
+          "Name": "TurnKnob",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -7252456336605295094,
+          "Name": "tile_carrier_rail_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7234000634106446326,
+          "Name": "shipwreck_metal_rust1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7052532000276014182,
+          "Name": "tile_wreck_woodPlanks5_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -7030229213176759517,
+          "Name": "Image",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -6983541636026787071,
+          "Name": "tile_wreck_metal4_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6951714641529727861,
+          "Name": "tile_MetalPanel2_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6932692676873037809,
+          "Name": "Terrain_Sand_Underwater",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6855064297303560745,
+          "Name": "Glass1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6751212052440562241,
+          "Name": "doorPorthole_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6726140918350435301,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Right_Lever",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6723857487807421212,
+          "Name": "TestTex",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6654236191157012138,
+          "Name": "RudderPedals",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6597115408780305188,
+          "Name": "EndGame_Jet_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6589930304623446972,
+          "Name": "Carrier_catapult_ramp_round_ramp",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6563848420181547744,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Turn_Knob",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6466012002014921438,
+          "Name": "Propeller",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6460500923570525979,
+          "Name": "shipwreck_metal_nitt2_tile1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6393040501364838393,
+          "Name": "tile_wreck_metal8_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6283593384656980986,
+          "Name": "chairc_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -6185300016158027435,
+          "Name": "tile_wreck_metal5_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6176040406147081372,
+          "Name": "shipwreck_metal_tile1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6103045567973779852,
+          "Name": "SeaPlaneConsole1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -6002116591829903181,
+          "Name": "tile_wreck_metal1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5955898364654947599,
+          "Name": "UStaticWorldSpaceAttributeView",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -5785614030083468497,
+          "Name": "tile_rust_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5759738001122419037,
+          "Name": "shipwreck_metal_rust2_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5701960075969817769,
+          "Name": "shipwreck_metal_nitt_tile1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5361244549057021744,
+          "Name": "tile_carrier_floor_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5324962787499278155,
+          "Name": "shipwreck_metal_rust1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5053858376637405267,
+          "Name": "Seaplane_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -5041393502023747271,
+          "Name": "ForceItemEquip",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -5003647723068497884,
+          "Name": "Waypoint_Marker",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4950246679080087643,
+          "Name": "Endgame_Enter_Cockpit",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -4882676926810316353,
+          "Name": "Endgame_Cockpit_Start_Engine",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -4867000698972005604,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Lights_Switch",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -4827719995384217622,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Lid_Glass",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -4787260688222911153,
+          "Name": "panourib_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -4630629736538927635,
+          "Name": "UCanvasGroupViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -4614052188080056147,
+          "Name": "tile_wreck_metal7_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4580545416055169824,
+          "Name": "tile_wreck_fiberGlass_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4493107008023807179,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Seaplane.1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -4325941353211544759,
+          "Name": "tile_wreck_metal8_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4136611854495486820,
+          "Name": "Submarine_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4122057473819049288,
+          "Name": "SeaplaneParts_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -4020770622873839887,
+          "Name": "SeaPlanePedals_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3966154098443350272,
+          "Name": "Endgame_ObjectiveCompleted",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -3904421573996441557,
+          "Name": "LodControllerChild",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3903814289777474141,
+          "Name": "Terrain_Sand_Clean_PACK",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3888667389898197678,
+          "Name": "Rail_Lever",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3556068476889526259,
+          "Name": "tile_wreck_metal6_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3478066391723071091,
+          "Name": "Radial_Bar_Fill",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3395959355600418646,
+          "Name": "PartRefiller",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -3254687560838834071,
+          "Name": "chairg_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3239507658051073423,
+          "Name": "tile_wreck_metal7_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -3219514063326205235,
+          "Name": "FuelCap2",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3144976232324058812,
+          "Name": "Throttle",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3137259049874020507,
+          "Name": "Endgame_Cockpit_Close",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -3118657611416088397,
+          "Name": "Door_13",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -3075696085161099781,
+          "Name": "Terrain_Sand_Clean_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2880597706352350649,
+          "Name": "Aircraft_Trolley",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2686971677551694462,
+          "Name": "Anchor1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2677100838230461392,
+          "Name": "UILookAtCamera",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -2605658605016983488,
+          "Name": "Carrier_catapult_ramp_latch",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2603736555207543952,
+          "Name": "consoleb_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2561612878953450208,
+          "Name": "Submarine_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2509864894754604047,
+          "Name": "tile_carrier_rail_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2474981798125919603,
+          "Name": "UFilledImageViewAdapter",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -2329117557895361172,
+          "Name": "Seaplane1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2280605849387865908,
+          "Name": "SeaPlanePedals_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2201640623328064853,
+          "Name": "tile_wreck_metal1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2189090282400122605,
+          "Name": "PrivateJet_Assetloader",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -2128528344420777241,
+          "Name": "chairf_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -2034653343232357585,
+          "Name": "SeaPlanePedals_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -2011522783894640385,
+          "Name": "tile_paint_detail_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1910507167226322444,
+          "Name": "Lever",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1904693217274996787,
+          "Name": "chairb_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1754641941851532903,
+          "Name": "shipwreck_metal_tile2_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1719920123246378881,
+          "Name": "shipwreck_metal_nitt2_tile1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1709038253836758230,
+          "Name": "Door",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1660110900089446848,
+          "Name": "tile_wreck_metal5_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1659469005795290626,
+          "Name": "Crafting_Icon",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1635607297517098850,
+          "Name": "tile_debris_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1623750566943288378,
+          "Name": "shipwreck_metal_tile1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1594280568225827084,
+          "Name": "tile_wreck_metalRope1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1590908514520164930,
+          "Name": "Seaplane_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1552893611324700592,
+          "Name": "tile_wreck_metal3_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1539215838443643830,
+          "Name": "AircraftManager",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -1450306587952465014,
+          "Name": "Endgame_Cockpit_Engage_Engine_Loop",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -1443246510150741735,
+          "Name": "consolee_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1410801113986088127,
+          "Name": "shipwreck_metal_tile2_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1294048748130590593,
+          "Name": "tile_wreck_metal3_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1287657492965781829,
+          "Name": "Panel1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -1265460017865723139,
+          "Name": "ShipWreck_Interior_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1132449168804564780,
+          "Name": "Rust_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1098965853626886017,
+          "Name": "tile_wreck_metal8_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -1019485272512812952,
+          "Name": "wood_planks1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -937464960345152934,
+          "Name": "SeaPlaneConsole1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -775018539750737848,
+          "Name": "Terrain_Grass_Dirt_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -769767507566627543,
+          "Name": "shipwreck_metal_rust2_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -746888695590070869,
+          "Name": "smokeStackPlastics_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -726982260074932076,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Handle",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -717535334959373913,
+          "Name": "shipwreck_metal_rust1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -631992192989627479,
+          "Name": "consoled_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -352774011989784994,
+          "Name": "Endgame_Cockpit_Check",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": -320632367989275290,
+          "Name": "Selecting",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": -194337711672405512,
+          "Name": "consolef_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": -140601708827846203,
+          "Name": "RubberDuck_Normal",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": -33096197625494875,
+          "Name": "tile_wreck_woodPlanks5_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 268903517522327109,
+          "Name": "Seaplane_Collider",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 284064868667662570,
+          "Name": "Station_Fuel",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 409831700850745986,
+          "Name": "Stranded_Deep_Plane_Rig_Final:polySurface3",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 415043133201189992,
+          "Name": "tile_carrier_floor_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 448599645318095458,
+          "Name": "Interactive_AIRCRAFT_DOOR",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 587882832761616542,
+          "Name": "Station_Water",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 722359704807246841,
+          "Name": "SeaplaneParts_AO",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 738493572289706023,
+          "Name": "DoorAudio",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 800285326611198944,
+          "Name": "door_close_metal",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 857386777505910722,
+          "Name": "WheelLeft",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1026541652018722969,
+          "Name": "RubberDuck",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1079330300356618825,
+          "Name": "CockpitStatic1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1200901021638548693,
+          "Name": "Handle",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1295336137621841729,
+          "Name": "tile_wreck_metalRope1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1327340291929696575,
+          "Name": "tile_wreck_metal3_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1340170143400109080,
+          "Name": "AircraftProximity",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 1429818043959101685,
+          "Name": "RustDecals",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1536149097577329299,
+          "Name": "Button",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1659634585454010491,
+          "Name": "tile_debris_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1785871582536254210,
+          "Name": "tile_smokeStack_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1799639562206104244,
+          "Name": "panourid_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 1831687591995461810,
+          "Name": "Anchor1_albedo",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 1849701316327226520,
+          "Name": "Interactive_AIRCRAFT_STATION",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2032534129924003511,
+          "Name": "tile_carrier_floor_detail",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2092318987569894415,
+          "Name": "tile_smokeStack_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2146883461335291448,
+          "Name": "Terrain_Sand_Wet_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2288793011162912271,
+          "Name": "chairh_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2391300771833314062,
+          "Name": "MSC_Endgame_EnterHangar",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 2404096462359930314,
+          "Name": "chaird_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2406474414492891106,
+          "Name": "TexScroll",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2421192820423920239,
+          "Name": "tile_MetalPanel2_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2494991870913334682,
+          "Name": "tile_wreck_woodPlanks5_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2624308491126111289,
+          "Name": "tile_smokeStack_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2692306138998306612,
+          "Name": "tile_wreck_metal1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2707362319117049152,
+          "Name": "Carrier_catapult_ramp_round_ramp_collision",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2719888538927285407,
+          "Name": "Engine",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 2741465449269115011,
+          "Name": "tile_wreck_fiberGlassRed_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 2788488354791954205,
+          "Name": "AircraftVFX",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 2807438999917887895,
+          "Name": "Endgame_Cockpit_Engage_Engine",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 2835642565848102579,
+          "Name": "Carrier_catapult_ramp_wagon_big_collision",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3033742147713548464,
+          "Name": "tile_rust_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3316192497285732718,
+          "Name": "tile_wreck_fiberGlass_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3586191041000449841,
+          "Name": "tile_wreck_metal6_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3601692668718961436,
+          "Name": "wood_planks1",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3699023335385525214,
+          "Name": "Terrain_Dirt_Sticks_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3860512067957393013,
+          "Name": "SeaPlaneInterior_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 3867195644293425333,
+          "Name": "Carrier_catapult_ramp_long_ramp",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3966396210792989723,
+          "Name": "Carrier_LOD0_collision",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 3978882126552431823,
+          "Name": "Fuel_Can_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4124847821172339118,
+          "Name": "FoodRefiller",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 4161241110497648012,
+          "Name": "Classification_Food",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4200197582229021733,
+          "Name": "Carrier_catapult_ramp_wagon_big",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4254995063901217483,
+          "Name": "chaire_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4268089612599476019,
+          "Name": "shipwreck_decal_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4346696402113985157,
+          "Name": "door_open_metal",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 4451723338796472292,
+          "Name": "FuelCap1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4455409496835689420,
+          "Name": "Endgame_ObjectivesCompleted",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 4482363618983446082,
+          "Name": "tile_wreck_metal4_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4508177648018941559,
+          "Name": "SeaPlaneInterior_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4609807923211468672,
+          "Name": "tile_carrier_floor_detail_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4618393765477385860,
+          "Name": "FuelRefiller",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 4656502168711297436,
+          "Name": "SeaPlanePanells_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4685242280941528470,
+          "Name": "panouria_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 4801549219668253962,
+          "Name": "Terrain_Dirt_Sticks_PACK",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4805549944153630725,
+          "Name": "RubberDuck_Emissive",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4819668352030631806,
+          "Name": "Fuel_Icon",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 4903876284245215315,
+          "Name": "tile_wreck_glassDirty_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5003646152442100056,
+          "Name": "Carrier_catapult_ramp_latch_collision",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5005747026509977829,
+          "Name": "Terrain_Sand_Dirty_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5038132346210113847,
+          "Name": "Seaplane_AO",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5174488096557051278,
+          "Name": "Pipes_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5201124984639150948,
+          "Name": "Pipes_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5234008082593710397,
+          "Name": "doorPorthole_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5245738467041491232,
+          "Name": "Glass2",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5300863657812057964,
+          "Name": "RubberDuck_Specular",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5409360372149687746,
+          "Name": "Station_Food",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5414991305713741790,
+          "Name": "shipwreck_metal_rust2_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5492555620448363600,
+          "Name": "ShipWreck_Interior",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5566573379034680604,
+          "Name": "consolec_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5619391815896947830,
+          "Name": "Carrier_Billboard",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 5620348280965256028,
+          "Name": "shipwreck_decal_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5710374371478037306,
+          "Name": "Submarine_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5808966732093535859,
+          "Name": "tile_carrier_floor_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5869599403285078831,
+          "Name": "Water_Icon",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 5952536733395927890,
+          "Name": "consolea_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6024406148986869737,
+          "Name": "SeaplaneParts_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6293263393311323695,
+          "Name": "tile_wreck_fiberGlassRed_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6381005377843429784,
+          "Name": "WheelRight",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6404632051733562467,
+          "Name": "Carrier_decals",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6408086274889029498,
+          "Name": "Stranded_Deep_Plane_Rig_Final:Lid",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6495893392148993601,
+          "Name": "shipwreck_metal_tile1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6610432146853316517,
+          "Name": "Aircraft_Trolley_Collision",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 6616824320111221674,
+          "Name": "RubberDuck_Diffuse",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 6807535986202380995,
+          "Name": "MostlyCloud",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7010719921925827993,
+          "Name": "shipwreck_metal_tile2_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7054715369608569405,
+          "Name": "WheelRear",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 7070520572343389183,
+          "Name": "tile_wires_electricPanel_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7368261662889326868,
+          "Name": "smokeStackPlastics_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7390222376665661155,
+          "Name": "SeaPlaneConsole1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7416721200997310478,
+          "Name": "Endgame_Cockpit_Rail",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 7460975279440107789,
+          "Name": "Seaplane_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7480882211261245375,
+          "Name": "Noise",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7630884952431939038,
+          "Name": "tile_wreck_wood_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7690338870576592676,
+          "Name": "Endgame_Cockpit_Crash",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 7853504364882160788,
+          "Name": "smokeStackPlastics_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7877187270147573113,
+          "Name": "tile_wreck_metalRope1_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7975251661624034754,
+          "Name": "SeaplaneParts_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 7984549808100241797,
+          "Name": "shipwreck_metal_nitt_tile1_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8124562377792079663,
+          "Name": "tile_wreck_metal4_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8155125832104803919,
+          "Name": "Endgame_Cockpit_Start_Engine_Loop",
+          "Type": "AudioClip"
+        },
+        {
+          "PathID": 8180389706038066870,
+          "Name": "EndGame_Jet_DIF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8221322228536568549,
+          "Name": "tile_wires_electricPanel_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8270458243498087688,
+          "Name": "Carrier_catapult_ramp_wagon_small",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 8366023105823929105,
+          "Name": "RubberDuck_Height",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8409068673600885160,
+          "Name": "tile_debris_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8457237177672765611,
+          "Name": "CockpitMovable1",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 8501139332677272989,
+          "Name": "Default-Particle",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8687186357525103665,
+          "Name": "tile_wreck_fiberGlass_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8876579086238974410,
+          "Name": "WorldSpaceAttributeController",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 8910686203737320927,
+          "Name": "shipwreck_metal_nitt_tile1_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8914454973377686123,
+          "Name": "panourie_low",
+          "Type": "Mesh"
+        },
+        {
+          "PathID": 8919154255574658236,
+          "Name": "Interactive_AIRCRAFT_COCKPIT",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 8932001160279713839,
+          "Name": "tile_wreck_metal6_SPEC",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 8943433556558001121,
+          "Name": "tile_wreck_metal5_DIFF",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 9029367073086480658,
+          "Name": "SeaPlaneInterior_NRM",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 9110630430778462737,
+          "Name": "Radial_Bar_Background_2",
+          "Type": "Texture2D"
+        },
+        {
+          "PathID": 9144063079062680000,
+          "Name": "Interactive_AIRCRAFT",
+          "Type": "MonoScript"
+        },
+        {
+          "PathID": 9210050326774883435,
+          "Name": "AircraftObjectives",
+          "Type": "MonoScript"
+        }
+      ]
+    },
+    {
+      "Name": "cab-9239c391a8e065ca685a112bddcfe0f2",
+      "Assets": []
+    }
+  ]
+}

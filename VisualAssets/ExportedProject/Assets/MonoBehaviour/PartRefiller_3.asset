@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af125cd5148e4124d5d7b9e381b5218, type: 3}
+  m_Name: PartRefiller_3
+  m_EditorClassIdentifier:
+  _partRequired:
+    _mTypeId: None
+    _iTypeId: AIRCRAFT_PROPELLER_PART
