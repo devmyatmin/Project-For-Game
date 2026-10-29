@@ -68,7 +68,7 @@ jobs:
         run: '"$GODOT_BIN" --headless --editor --path . --quit'
 
       - name: Install Android Gradle build template
-        run: '"$GODOT_BIN" --headless --editor --path . --install-android-build-template'
+        run: '"$GODOT_BIN" --headless --editor --path . --install-android-build-template --quit'
 
       - name: Build C# project
         run: dotnet build StrandedDeep.csproj --configuration Debug
