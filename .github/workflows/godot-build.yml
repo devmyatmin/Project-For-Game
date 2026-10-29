@@ -81,10 +81,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # The template install command can otherwise leave the headless editor
-          # running without further log output. Bound the step and force exit.
-          timeout 180s "$GODOT_BIN" --headless --path . --install-android-build-template --quit --verbose
-          test -f android/build/build.gradle
+          # This is an editor operation; run it in headless editor mode and
+          # retain verbose output so any template-install failure is diagnosable.
+          if ! timeout 180s "$GODOT_BIN" --headless --editor --path . --install-android-build-template --quit --verbose 2>&1 | tee android-template-install.log; then
+            echo "::error::Godot Android build-template installation failed."
+            tail -n 100 android-template-install.log || true
+            exit 1
+          fi
+          echo "Installed Android template files:"
+          find android -maxdepth 3 -type f -print | sort | head -n 80
+          if [ ! -f android/build/build.gradle ]; then
+            echo "::error::Expected android/build/build.gradle was not created."
+            exit 1
+          fi
 
       - name: Export test APK
         shell: bash
