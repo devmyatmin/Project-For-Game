@@ -11,6 +11,7 @@ public partial class MobileControls : CanvasLayer
     public Vector2 MovementInput { get; private set; }
     public Vector2 LookDelta { get; private set; }
     public bool CrouchToggled { get; private set; }
+    public bool RunToggled { get; private set; }
 
     private Control _stickBase = null!;
     private Control _stickKnob = null!;
@@ -61,6 +62,14 @@ public partial class MobileControls : CanvasLayer
 
         var interact = MakeButton(root, "InteractButton", "USE", new Vector2(-104, -178), new Vector2(-24, -98), 1, 1);
         interact.Pressed += () => EmitSignal(SignalName.InteractRequested);
+
+        var run = MakeButton(root, "RunButton", "RUN", new Vector2(-194, -210), new Vector2(-114, -138), 1, 1);
+        run.AddThemeFontSizeOverride("font_size", 15);
+        run.Pressed += () =>
+        {
+            RunToggled = !RunToggled;
+            EmitSignal(SignalName.RunChanged, RunToggled);
+        };
 
         var crouch = MakeButton(root, "CrouchButton", "↓", new Vector2(-184, -118), new Vector2(-112, -46), 1, 1);
         crouch.Pressed += () =>
@@ -130,6 +139,7 @@ public partial class MobileControls : CanvasLayer
     [Signal] public delegate void JumpRequestedEventHandler();
     [Signal] public delegate void InteractRequestedEventHandler();
     [Signal] public delegate void CrouchChangedEventHandler(bool isCrouching);
+    [Signal] public delegate void RunChangedEventHandler(bool isRunning);
 
     public void SetSurvivalStatus(float health, float water, float food)
     {
