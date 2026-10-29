@@ -61,7 +61,11 @@ public partial class MobileControls : CanvasLayer
         interact.Pressed += () => EmitSignal(SignalName.InteractRequested);
 
         var crouch = MakeButton(root, "CrouchButton", "↓", new Vector2(-184, -118), new Vector2(-112, -46), 1, 1);
-        crouch.Pressed += () => CrouchToggled = !CrouchToggled;
+        crouch.Pressed += () =>
+        {
+            CrouchToggled = !CrouchToggled;
+            EmitSignal(SignalName.CrouchChanged, CrouchToggled);
+        };
 
         _jumpButton = MakeButton(root, "JumpButton", "↑", new Vector2(-100, -96), new Vector2(-20, -16), 1, 1);
         _jumpButton.Pressed += () => EmitSignal(SignalName.JumpRequested);
@@ -105,6 +109,7 @@ public partial class MobileControls : CanvasLayer
 
     [Signal] public delegate void JumpRequestedEventHandler();
     [Signal] public delegate void InteractRequestedEventHandler();
+    [Signal] public delegate void CrouchChangedEventHandler(bool isCrouching);
 
     public Vector2 ConsumeLookDelta()
     {
