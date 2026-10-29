@@ -77,15 +77,23 @@ jobs:
           set -euo pipefail
           "$GODOT_BIN" --headless --editor --path . --quit
 
-      - name: Export test APK (install Android template if needed)
+      - name: Verify built-in Android export templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          TEMPLATE_DIR="$HOME/.local/share/godot/export_templates/4.5.1.stable"
+          test -s "$TEMPLATE_DIR/android_debug.apk"
+          test -s "$TEMPLATE_DIR/android_release.apk"
+          echo "Godot built-in Android APK templates are installed."
+
+      - name: Export test APK
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p build
-          # Godot documents --install-android-build-template as an option used
-          # together with --export-debug/--export-release, not as a standalone
-          # editor command. Keep the full export log so failures are actionable.
-          if ! timeout 600s "$GODOT_BIN" --headless --path . --install-android-build-template --export-debug "Android" build/StrandedDeep-test.apk --verbose 2>&1 | tee android-export.log; then
+          # Use Godot's prebuilt APK templates. The project does not need an
+          # android/build Gradle project for this export mode.
+          if ! timeout 600s "$GODOT_BIN" --headless --path . --export-debug "Android" build/StrandedDeep-test.apk --verbose 2>&1 | tee android-export.log; then
             echo "::error::Godot Android APK export failed."
             tail -n 120 android-export.log || true
             exit 1
