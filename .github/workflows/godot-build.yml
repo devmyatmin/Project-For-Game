@@ -35,7 +35,7 @@ jobs:
           packages: ''
 
       - name: Install Android SDK components
-        run: sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+        run: sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;28.1.13356709"
 
       - name: Download Godot 4.5.1 .NET
         shell: bash
@@ -66,6 +66,9 @@ jobs:
 
       - name: Import project and generate C# bindings
         run: '"$GODOT_BIN" --headless --editor --path . --quit'
+
+      - name: Install Android Gradle build template
+        run: "$GODOT_BIN" --headless --editor --path . --install-android-build-template
 
       - name: Build C# project
         run: dotnet build StrandedDeep.csproj --configuration Debug
