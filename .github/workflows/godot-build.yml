@@ -86,7 +86,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          timeout 180s "$GODOT_BIN" --headless --path . --install-android-build-template --quit
+          timeout 180s "$GODOT_BIN" --headless --editor --path . --install-android-build-template --quit
           test -f android/build/build.gradle
 
       - name: Export Android test APK
