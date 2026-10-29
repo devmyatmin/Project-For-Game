@@ -28,6 +28,7 @@ jobs:
           wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_mono_linux_x86_64.zip -O godot.zip
           unzip -q godot.zip -d godot-bin
           chmod +x godot-bin/Godot_v4.5.1-stable_mono_linux.x86_64
+          mv godot-bin/Godot_v4.5.1-stable_mono_linux.x86_64 godot-bin/godot
           echo "$PWD/godot-bin" >> "$GITHUB_PATH"
 
       - name: Import project and generate C# bindings
