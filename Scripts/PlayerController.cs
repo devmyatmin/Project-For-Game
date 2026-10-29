@@ -18,6 +18,7 @@ public partial class PlayerController : CharacterBody3D
     private MobileControls? _mobileControls;
     private bool _jumpRequested;
     private bool _isCrouching;
+    private bool _isRunning;
     private float _cameraPitch;
     private readonly Dictionary<string, int> _inventory = new();
 
@@ -32,6 +33,7 @@ public partial class PlayerController : CharacterBody3D
         {
             _mobileControls.JumpRequested += OnJumpRequested;
             _mobileControls.CrouchChanged += OnCrouchChanged;
+            _mobileControls.RunChanged += OnRunChanged;
             _mobileControls.InteractRequested += OnInteractRequested;
         }
     }
@@ -42,6 +44,7 @@ public partial class PlayerController : CharacterBody3D
         {
             _mobileControls.JumpRequested -= OnJumpRequested;
             _mobileControls.CrouchChanged -= OnCrouchChanged;
+            _mobileControls.RunChanged -= OnRunChanged;
             _mobileControls.InteractRequested -= OnInteractRequested;
         }
     }
@@ -59,7 +62,7 @@ public partial class PlayerController : CharacterBody3D
             input = _mobileControls.MovementInput;
 
         Vector3 direction = (GlobalTransform.Basis * new Vector3(input.X, 0.0f, input.Y)).Normalized();
-        float currentMoveSpeed = _isCrouching ? MoveSpeed * 0.55f : MoveSpeed;
+        float currentMoveSpeed = _isCrouching ? MoveSpeed * 0.55f : (_isRunning ? MoveSpeed * 1.65f : MoveSpeed);
         if (direction != Vector3.Zero)
             Velocity = new Vector3(direction.X * currentMoveSpeed, Velocity.Y, direction.Z * currentMoveSpeed);
         else
@@ -125,6 +128,8 @@ public partial class PlayerController : CharacterBody3D
         if (pickup.TryCollect())
             _mobileControls?.SetInventoryStatus(itemName, amount, _inventory[itemId]);
     }
+
+    private void OnRunChanged(bool isRunning) => _isRunning = isRunning;
 
     private void OnCrouchChanged(bool isCrouching)
     {
