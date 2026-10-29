@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_player"]
+[ext_resource type="Script" path="res://Scripts/MobileControls.cs" id="2_controls"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape_player"]
+radius = 0.38
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_player"]
+radius = 0.38
+height = 1.8
+
+[sub_resource type="BoxShape3D" id="BoxShape_ground"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ground"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="StandardMaterial3D" id="Material_player"]
+albedo_color = Color(0.31, 0.42, 0.38, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.9, -0.5, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+position = Vector3(0, -0.5, 0)
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_ground")
+
+[node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape_ground")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+position = Vector3(0, 0.05, 0)
+script = ExtResource("1_player")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="Player"]
+position = Vector3(0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_player")
+surface_material_override/0 = SubResource("Material_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+position = Vector3(0, 0.9, 0)
+shape = SubResource("CapsuleShape_player")
+
+[node name="CameraPivot" type="Node3D" parent="Player"]
+position = Vector3(0, 1.55, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+current = true
+fov = 78.0
+
+[node name="MobileControls" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource("2_controls")
