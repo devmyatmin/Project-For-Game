@@ -17,6 +17,7 @@ public partial class MobileControls : CanvasLayer
     private Control _lookArea = null!;
     private Button _jumpButton = null!;
     private Label _statusLabel = null!;
+    private Label _inventoryLabel = null!;
     private bool _stickActive;
     private int _stickTouch = -1;
     private int _lookTouch = -1;
@@ -106,6 +107,24 @@ public partial class MobileControls : CanvasLayer
         _statusLabel.AddThemeColorOverride("font_color", new Color(0.91f, 0.94f, 0.88f, 0.8f));
         _statusLabel.AddThemeFontSizeOverride("font_size", 12);
         root.AddChild(_statusLabel);
+
+        _inventoryLabel = new Label
+        {
+            Name = "InventoryStatus",
+            Text = "ITEMS  0",
+            AnchorLeft = 0,
+            AnchorTop = 0,
+            AnchorRight = 0,
+            AnchorBottom = 0,
+            OffsetLeft = 24,
+            OffsetTop = 78,
+            OffsetRight = 300,
+            OffsetBottom = 100,
+            MouseFilter = Control.MouseFilterEnum.Ignore
+        };
+        _inventoryLabel.AddThemeColorOverride("font_color", new Color(0.91f, 0.94f, 0.88f, 0.8f));
+        _inventoryLabel.AddThemeFontSizeOverride("font_size", 12);
+        root.AddChild(_inventoryLabel);
     }
 
     [Signal] public delegate void JumpRequestedEventHandler();
@@ -116,6 +135,12 @@ public partial class MobileControls : CanvasLayer
     {
         if (_statusLabel != null)
             _statusLabel.Text = $"♥ {Mathf.RoundToInt(health)}   WATER {Mathf.RoundToInt(water)}   FOOD {Mathf.RoundToInt(food)}";
+    }
+
+    public void SetInventoryStatus(string itemName, int amountCollected, int total)
+    {
+        if (_inventoryLabel != null)
+            _inventoryLabel.Text = $"PICKED UP: {itemName} +{amountCollected}  (TOTAL {total})";
     }
 
     public Vector2 ConsumeLookDelta()
