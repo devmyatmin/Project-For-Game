@@ -1,10 +1,29 @@
 extends Node3D
 class_name WorldBootstrap
 
+const PALM_TREE_SCENE: PackedScene = preload("res://Scenes/Environment/PalmTree.tscn")
+
 func _ready() -> void:
+    _spawn_palm_trees()
     _spawn_pickup("stick", "Stick", Vector3(-1.0, 0.12, -2.6), false)
     _spawn_pickup("rock", "Rock", Vector3(1.0, 0.16, -3.2), true)
     _spawn_pickup("stick", "Stick", Vector3(0.0, 0.12, -4.2), false)
+
+func _spawn_palm_trees() -> void:
+    # Keep trees away from the initial pickup cluster and leave a clear spawn area.
+    var tree_positions: Array[Vector3] = [
+        Vector3(-15.0, 0.0, -13.0),
+        Vector3(14.0, 0.0, -15.0),
+        Vector3(-19.0, 0.0, 4.0),
+        Vector3(19.0, 0.0, 5.0),
+        Vector3(-10.0, 0.0, 18.0),
+        Vector3(9.0, 0.0, 19.0)
+    ]
+    for index in range(tree_positions.size()):
+        var tree := PALM_TREE_SCENE.instantiate() as Node3D
+        tree.position = tree_positions[index]
+        tree.rotation.y = float(index) * 0.91
+        add_child(tree)
 
 func _spawn_pickup(item_id: String, display_name: String, item_position: Vector3, is_rock: bool) -> void:
     var pickup := CollectibleResource.new()
