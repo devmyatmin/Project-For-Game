@@ -1,5 +1,8 @@
 shader_type spatial;
-render_mode cull_back;
+// The generated heightmap mesh can have reversed triangle winding after
+// Unity-to-Godot row conversion. Keep the terrain visible from both sides;
+// vertex normals are explicitly generated to point upward.
+render_mode cull_disabled;
 
 uniform sampler2D grass_texture : source_color, repeat_enable;
 uniform sampler2D sand_texture : source_color, repeat_enable;
