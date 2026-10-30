@@ -8,7 +8,7 @@ var _terrain: OriginalTerrain
 
 func _ready() -> void:
     _terrain = get_node_or_null("../Ground") as OriginalTerrain
-    _place_player_on_terrain.call_deferred()
+    call_deferred("_place_player_on_terrain")
     _spawn_palm_trees()
     _spawn_pickup("stick", "Stick", Vector3(-1.0, 0.12, -2.6), false)
     _spawn_pickup("rock", "Rock", Vector3(1.0, 0.16, -3.2), true)
