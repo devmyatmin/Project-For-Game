@@ -65,14 +65,17 @@ func _physics_process(delta: float) -> void:
     _jump_requested = false
     move_and_slide()
 
-    # Last-resort recovery for mobile builds if the generated terrain collider
-    # is not ready or a frame starts below the surface: never leave the player
-    # trapped underground.
+    # Safety net: the CharacterBody origin is at the player's feet (the capsule
+    # is offset upward by half its height). Do not wait until the body is half
+    # underground before recovering. This also keeps the player above the
+    # fallback cylinder if the original Unity heightmap cannot be read.
     if _terrain != null:
         var terrain_y := _terrain.get_surface_height_at(global_position.x, global_position.z)
-        if global_position.y < terrain_y - 0.5:
-            global_position.y = terrain_y + 2.0
-            velocity = Vector3.ZERO
+        if global_position.y < terrain_y + 0.05:
+            global_position.y = terrain_y + 0.05
+            velocity.y = maxf(velocity.y, 0.0)
+            velocity.x = 0.0
+            velocity.z = 0.0
 
 func _on_jump_requested() -> void:
     _jump_requested = true
