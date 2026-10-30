@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_player"]
 [ext_resource type="Script" path="res://Scripts/MobileControls.gd" id="2_controls"]
@@ -14,13 +14,25 @@ radius = 0.38
 height = 1.8
 
 [sub_resource type="BoxShape3D" id="BoxShape_ground"]
-size = Vector3(200, 1, 200)
+size = Vector3(70, 0.6, 70)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ground"]
-size = Vector3(200, 1, 200)
+size = Vector3(70, 0.6, 70)
 
 [sub_resource type="StandardMaterial3D" id="Material_player"]
 albedo_color = Color(0.31, 0.42, 0.38, 1)
+
+[sub_resource type="StandardMaterial3D" id="Material_ground"]
+albedo_color = Color(0.62, 0.49, 0.31, 1)
+roughness = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_water"]
+size = Vector2(180, 180)
+
+[sub_resource type="StandardMaterial3D" id="Material_water"]
+albedo_color = Color(0.055, 0.31, 0.39, 1)
+metallic = 0.05
+roughness = 0.28
 
 [node name="Main" type="Node3D"]
 
@@ -28,11 +40,17 @@ albedo_color = Color(0.31, 0.42, 0.38, 1)
 rotation = Vector3(-0.9, -0.5, 0)
 shadow_enabled = true
 
+[node name="Ocean" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.62, 0)
+mesh = SubResource("PlaneMesh_water")
+material_override = SubResource("Material_water")
+
 [node name="Ground" type="StaticBody3D" parent="."]
-position = Vector3(0, -0.5, 0)
+position = Vector3(0, -0.3, 0)
 
 [node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_ground")
+material_override = SubResource("Material_ground")
 
 [node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape_ground")
@@ -45,7 +63,6 @@ script = ExtResource("1_player")
 position = Vector3(0, 0.9, 0)
 mesh = SubResource("CapsuleMesh_player")
 surface_material_override/0 = SubResource("Material_player")
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 position = Vector3(0, 0.9, 0)
