@@ -16,13 +16,10 @@ var _heights := PackedFloat32Array()
 
 func _ready() -> void:
     if not _load_original_heightmap():
-        push_error("Original Terrain_Story heightmap failed to load. Check Android export include filters and the runtime log.")
-        var fallback_mesh := get_node_or_null("GroundMesh") as MeshInstance3D
-        if fallback_mesh != null:
-            fallback_mesh.visible = false
-        var fallback_collision := get_node_or_null("GroundCollision") as CollisionShape3D
-        if fallback_collision != null:
-            fallback_collision.disabled = true
+        # Keep the scene's built-in cylinder mesh AND collision enabled as a
+        # safe floor. Disabling both here makes the player fall through the
+        # world whenever the Unity YAML heightmap cannot be read on Android.
+        push_error("Original Terrain_Story heightmap failed to load; keeping the built-in fallback ground and collision active.")
         return
     _build_terrain_mesh()
 
@@ -162,14 +159,21 @@ func _build_terrain_mesh() -> void:
 
     var grass_texture := load(GRASS_TEXTURE_PATH) as Texture2D
     var sand_texture := load(SAND_TEXTURE_PATH) as Texture2D
-    if grass_texture == null or sand_texture == null:
-        push_error("Original terrain texture(s) are missing from the exported project.")
-        return
-
-    var material := ShaderMaterial.new()
-    material.shader = TERRAIN_SHADER
-    material.set_shader_parameter("grass_texture", grass_texture)
-    material.set_shader_parameter("sand_texture", sand_texture)
+    var material: Material
+    if grass_texture != null and sand_texture != null:
+        var terrain_material := ShaderMaterial.new()
+        terrain_material.shader = TERRAIN_SHADER
+        terrain_material.set_shader_parameter("grass_texture", grass_texture)
+        terrain_material.set_shader_parameter("sand_texture", sand_texture)
+        material = terrain_material
+    else:
+        # Missing textures must not prevent the generated terrain mesh and its
+        # matching collision from being installed. Use a visible fallback tint.
+        push_error("Original terrain texture(s) are missing; using a fallback material while preserving terrain geometry.")
+        var fallback_material := StandardMaterial3D.new()
+        fallback_material.albedo_color = Color(0.42, 0.36, 0.25, 1.0)
+        fallback_material.roughness = 1.0
+        material = fallback_material
 
     var mesh_instance := get_node_or_null("GroundMesh") as MeshInstance3D
     if mesh_instance != null:
