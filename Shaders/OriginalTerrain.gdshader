@@ -17,6 +17,10 @@ void fragment() {
     vec3 grass = texture(grass_texture, UV).rgb;
     vec3 sand = texture(sand_texture, UV).rgb;
     float beach_blend = 1.0 - smoothstep(0.25, 3.0, terrain_height);
-    ALBEDO = mix(grass, sand, beach_blend);
-    ROUGHNESS = 0.96;
+    // Keep the imported ground texture natural under direct sunlight.
+    // No metallic/specular shine: soil and grass should remain matte.
+    ALBEDO = mix(grass, sand, beach_blend) * vec3(0.82, 0.82, 0.76);
+    METALLIC = 0.0;
+    ROUGHNESS = 1.0;
+    SPECULAR = 0.12;
 }
