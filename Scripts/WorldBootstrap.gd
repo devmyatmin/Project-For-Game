@@ -3,11 +3,30 @@ class_name WorldBootstrap
 
 const PALM_TREE_SCENE: PackedScene = preload("res://Scenes/Environment/PalmTree.tscn")
 
+var _terrain: OriginalTerrain
+
+
 func _ready() -> void:
+    _terrain = get_node_or_null("../Ground") as OriginalTerrain
+    _place_player_on_terrain()
     _spawn_palm_trees()
     _spawn_pickup("stick", "Stick", Vector3(-1.0, 0.12, -2.6), false)
     _spawn_pickup("rock", "Rock", Vector3(1.0, 0.16, -3.2), true)
     _spawn_pickup("stick", "Stick", Vector3(0.0, 0.12, -4.2), false)
+
+
+func _place_player_on_terrain() -> void:
+    var player := get_node_or_null("../Player") as CharacterBody3D
+    if player == null:
+        return
+    player.position.y = _surface_y(player.position.x, player.position.z) + 0.05
+
+
+func _surface_y(x: float, z: float) -> float:
+    if _terrain != null:
+        return _terrain.get_surface_height_at(x, z)
+    return 0.0
+
 
 func _spawn_palm_trees() -> void:
     # Keep trees away from the initial pickup cluster and leave a clear spawn area.
@@ -21,9 +40,15 @@ func _spawn_palm_trees() -> void:
     ]
     for index in range(tree_positions.size()):
         var tree := PALM_TREE_SCENE.instantiate() as Node3D
-        tree.position = tree_positions[index]
+        var tree_position: Vector3 = tree_positions[index]
+        tree.position = Vector3(
+            tree_position.x,
+            _surface_y(tree_position.x, tree_position.z),
+            tree_position.z
+        )
         tree.rotation.y = float(index) * 0.91
         add_child(tree)
+
 
 func _spawn_pickup(item_id: String, display_name: String, item_position: Vector3, is_rock: bool) -> void:
     var pickup := CollectibleResource.new()
@@ -31,7 +56,12 @@ func _spawn_pickup(item_id: String, display_name: String, item_position: Vector3
     pickup.item_id = item_id
     pickup.display_name = display_name
     pickup.amount = 1
-    pickup.position = item_position
+    var pickup_height: float = 0.28 if is_rock else 0.06
+    pickup.position = Vector3(
+        item_position.x,
+        _surface_y(item_position.x, item_position.z) + pickup_height,
+        item_position.z
+    )
 
     var shape := CollisionShape3D.new()
     if is_rock:
