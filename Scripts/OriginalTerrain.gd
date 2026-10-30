@@ -16,7 +16,13 @@ var _heights := PackedFloat32Array()
 
 func _ready() -> void:
     if not _load_original_heightmap():
-        push_warning("Original Terrain_Story heightmap could not be loaded; keeping the fallback ground mesh.")
+        push_error("Original Terrain_Story heightmap failed to load. Check Android export include filters and the runtime log.")
+        var fallback_mesh := get_node_or_null("GroundMesh") as MeshInstance3D
+        if fallback_mesh != null:
+            fallback_mesh.visible = false
+        var fallback_collision := get_node_or_null("GroundCollision") as CollisionShape3D
+        if fallback_collision != null:
+            fallback_collision.disabled = true
         return
     _build_terrain_mesh()
 
@@ -154,10 +160,16 @@ func _build_terrain_mesh() -> void:
     var terrain_mesh := ArrayMesh.new()
     terrain_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 
+    var grass_texture := load(GRASS_TEXTURE_PATH) as Texture2D
+    var sand_texture := load(SAND_TEXTURE_PATH) as Texture2D
+    if grass_texture == null or sand_texture == null:
+        push_error("Original terrain texture(s) are missing from the exported project.")
+        return
+
     var material := ShaderMaterial.new()
     material.shader = TERRAIN_SHADER
-    material.set_shader_parameter("grass_texture", load(GRASS_TEXTURE_PATH))
-    material.set_shader_parameter("sand_texture", load(SAND_TEXTURE_PATH))
+    material.set_shader_parameter("grass_texture", grass_texture)
+    material.set_shader_parameter("sand_texture", sand_texture)
 
     var mesh_instance := get_node_or_null("GroundMesh") as MeshInstance3D
     if mesh_instance != null:
