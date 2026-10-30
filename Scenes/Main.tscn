@@ -66,7 +66,7 @@ rotation = Vector3(-0.9, -0.5, 0)
 shadow_enabled = true
 
 [node name="Ocean" type="MeshInstance3D" parent="."]
-position = Vector3(0, -0.62, 0)
+position = Vector3(0, 12.0, 0)
 mesh = SubResource("PlaneMesh_water")
 material_override = SubResource("Material_water")
 
