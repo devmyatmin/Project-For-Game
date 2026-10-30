@@ -9,6 +9,7 @@ class_name PlayerController
 var _gravity: float = 9.8
 var _camera_pivot: Node3D
 var _camera: Camera3D
+var _terrain: OriginalTerrain
 var _mobile_controls: MobileControls
 var _jump_requested := false
 var _is_crouching := false
@@ -21,6 +22,7 @@ func _ready() -> void:
     _camera_pivot = get_node_or_null("CameraPivot") as Node3D
     if _camera_pivot:
         _camera = _camera_pivot.get_node_or_null("Camera3D") as Camera3D
+    _terrain = get_node_or_null("../Ground") as OriginalTerrain
     _mobile_controls = get_tree().root.find_child("MobileControls", true, false) as MobileControls
     if _mobile_controls:
         _mobile_controls.jump_requested.connect(_on_jump_requested)
@@ -62,6 +64,18 @@ func _physics_process(delta: float) -> void:
         velocity.y -= _gravity * gravity_multiplier * delta
     _jump_requested = false
     move_and_slide()
+
+    # Safety net: the CharacterBody origin is at the player's feet (the capsule
+    # is offset upward by half its height). Do not wait until the body is half
+    # underground before recovering. This also keeps the player above the
+    # fallback cylinder if the original Unity heightmap cannot be read.
+    if _terrain != null:
+        var terrain_y := _terrain.get_surface_height_at(global_position.x, global_position.z)
+        if global_position.y < terrain_y + 0.05:
+            global_position.y = terrain_y + 0.05
+            velocity.y = maxf(velocity.y, 0.0)
+            velocity.x = 0.0
+            velocity.z = 0.0
 
 func _on_jump_requested() -> void:
     _jump_requested = true

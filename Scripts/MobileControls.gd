@@ -20,7 +20,8 @@ var _inventory_label: Label
 var _stick_active := false
 var _stick_touch := -1
 var _look_touch := -1
-const STICK_RADIUS := 58.0
+const STICK_RADIUS_BASE := 94.0
+var _stick_radius := STICK_RADIUS_BASE
 
 func _ready() -> void:
     var root := Control.new()
@@ -39,30 +40,30 @@ func _ready() -> void:
     root.add_child(_look_area)
     _look_area.gui_input.connect(_on_look_input)
 
-    _stick_base = _make_circle("JoystickBase", Vector2(28, -164), Vector2(164, -28), Color(0.06, 0.09, 0.11, 0.48))
+    _stick_base = _make_circle("JoystickBase", Vector2(24, -256), Vector2(256, -24), Color(0.06, 0.09, 0.11, 0.48))
     _stick_base.anchor_top = 1.0
     _stick_base.anchor_bottom = 1.0
     root.add_child(_stick_base)
     _stick_base.gui_input.connect(_on_stick_input)
 
-    _stick_knob = _make_circle("JoystickKnob", Vector2(39, 39), Vector2(97, 97), Color(0.78, 0.86, 0.88, 0.62))
+    _stick_knob = _make_circle("JoystickKnob", Vector2(64, 64), Vector2(160, 160), Color(0.78, 0.86, 0.88, 0.62))
     _stick_knob.mouse_filter = Control.MOUSE_FILTER_IGNORE
     _stick_base.add_child(_stick_knob)
 
-    var interact := _make_button(root, "InteractButton", "USE", Vector2(-104, -178), Vector2(-24, -98))
+    var interact := _make_button(root, "InteractButton", "USE", Vector2(-328, -176), Vector2(-176, -24))
     interact.pressed.connect(func(): interact_requested.emit())
-    var run := _make_button(root, "RunButton", "RUN", Vector2(-194, -210), Vector2(-114, -138))
+    var run := _make_button(root, "RunButton", "RUN", Vector2(-328, -328), Vector2(-176, -176))
     run.add_theme_font_size_override("font_size", 15)
     run.pressed.connect(func():
         run_toggled = not run_toggled
         run_changed.emit(run_toggled)
     )
-    var crouch := _make_button(root, "CrouchButton", "↓", Vector2(-184, -118), Vector2(-112, -46))
+    var crouch := _make_button(root, "CrouchButton", "↓", Vector2(-176, -328), Vector2(-24, -176))
     crouch.pressed.connect(func():
         crouch_toggled = not crouch_toggled
         crouch_changed.emit(crouch_toggled)
     )
-    var jump := _make_button(root, "JumpButton", "↑", Vector2(-100, -96), Vector2(-20, -16))
+    var jump := _make_button(root, "JumpButton", "↑", Vector2(-176, -176), Vector2(-24, -24))
     jump.pressed.connect(func(): jump_requested.emit())
 
     var hint := Label.new()
@@ -100,6 +101,69 @@ func _ready() -> void:
     _inventory_label.add_theme_color_override("font_color", Color(0.91, 0.94, 0.88, 0.8))
     _inventory_label.add_theme_font_size_override("font_size", 12)
     root.add_child(_inventory_label)
+
+    # Reflow the touch HUD whenever the device orientation or viewport changes.
+    get_viewport().size_changed.connect(_apply_responsive_layout)
+    _apply_responsive_layout()
+
+func _apply_responsive_layout() -> void:
+    var viewport_size := get_viewport().get_visible_rect().size
+    if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+        return
+
+    # The layout is authored around a 900x500 landscape viewport. Clamp the
+    # scale so controls stay usable on small phones without becoming enormous
+    # on tablets and high-resolution screens.
+    var ui_scale := clampf(minf(viewport_size.x / 900.0, viewport_size.y / 500.0), 1.0, 1.25)
+    _stick_radius = STICK_RADIUS_BASE * ui_scale
+    _stick_base.offset_left = 24.0 * ui_scale
+    _stick_base.offset_top = -256.0 * ui_scale
+    _stick_base.offset_right = 256.0 * ui_scale
+    _stick_base.offset_bottom = -24.0 * ui_scale
+    _stick_knob.offset_left = 64.0 * ui_scale
+    _stick_knob.offset_top = 64.0 * ui_scale
+    _stick_knob.offset_right = 160.0 * ui_scale
+    _stick_knob.offset_bottom = 160.0 * ui_scale
+
+    _set_button_layout("InteractButton", -328, -176, -176, -24, ui_scale)
+    _set_button_layout("RunButton", -328, -328, -176, -176, ui_scale)
+    _set_button_layout("CrouchButton", -176, -328, -24, -176, ui_scale)
+    _set_button_layout("JumpButton", -176, -176, -24, -24, ui_scale)
+
+    var hint := get_node_or_null("TouchHud/HudHint") as Label
+    if hint:
+        hint.offset_left = 24.0 * ui_scale
+        hint.offset_top = 20.0 * ui_scale
+        hint.offset_right = 180.0 * ui_scale
+        hint.offset_bottom = 48.0 * ui_scale
+        hint.add_theme_font_size_override("font_size", roundi(18.0 * ui_scale))
+
+    if is_instance_valid(_status_label):
+        _status_label.offset_left = 24.0 * ui_scale
+        _status_label.offset_top = 52.0 * ui_scale
+        _status_label.offset_right = 380.0 * ui_scale
+        _status_label.offset_bottom = 76.0 * ui_scale
+        _status_label.add_theme_font_size_override("font_size", roundi(12.0 * ui_scale))
+
+    if is_instance_valid(_inventory_label):
+        _inventory_label.offset_left = 24.0 * ui_scale
+        _inventory_label.offset_top = 78.0 * ui_scale
+        _inventory_label.offset_right = 380.0 * ui_scale
+        _inventory_label.offset_bottom = 100.0 * ui_scale
+        _inventory_label.add_theme_font_size_override("font_size", roundi(12.0 * ui_scale))
+
+    _stick_knob.position = (_stick_base.size - _stick_knob.size) * 0.5
+
+func _set_button_layout(node_name: String, left: float, top: float, right: float, bottom: float, ui_scale: float) -> void:
+    var button := get_node_or_null("TouchHud/" + node_name) as Button
+    if not button:
+        return
+    button.offset_left = left * ui_scale
+    button.offset_top = top * ui_scale
+    button.offset_right = right * ui_scale
+    button.offset_bottom = bottom * ui_scale
+    var base_font := 21.0 if node_name == "InteractButton" or node_name == "RunButton" else 36.0
+    button.add_theme_font_size_override("font_size", maxi(10, roundi(base_font * ui_scale)))
 
 func set_survival_status(health: float, water: float, food: float) -> void:
     if is_instance_valid(_status_label):
@@ -157,7 +221,7 @@ func _make_button(parent: Control, node_name: String, label_text: String, top_le
     button.add_theme_stylebox_override("hover", normal)
     button.add_theme_stylebox_override("pressed", pressed)
     button.add_theme_color_override("font_color", Color(0.95, 0.98, 0.96, 1))
-    button.add_theme_font_size_override("font_size", 13 if label_text == "USE" else 24)
+    button.add_theme_font_size_override("font_size", 21 if label_text == "USE" or label_text == "RUN" else 36)
     parent.add_child(button)
     return button
 
@@ -184,9 +248,9 @@ func _update_stick(screen_position: Vector2) -> void:
     var local := _stick_base.get_global_transform_with_canvas().affine_inverse() * screen_position
     var center := _stick_base.size * 0.5
     var offset := local - center
-    if offset.length() > STICK_RADIUS:
-        offset = offset.normalized() * STICK_RADIUS
-    movement_input = Vector2(offset.x / STICK_RADIUS, offset.y / STICK_RADIUS)
+    if offset.length() > _stick_radius:
+        offset = offset.normalized() * _stick_radius
+    movement_input = Vector2(offset.x / _stick_radius, offset.y / _stick_radius)
     _stick_knob.position = center + offset - (_stick_knob.size * 0.5)
 
 func _reset_stick() -> void:

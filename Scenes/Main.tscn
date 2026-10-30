@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_player"]
 [ext_resource type="Script" path="res://Scripts/MobileControls.gd" id="2_controls"]
 [ext_resource type="Script" path="res://Scripts/SurvivalStats.gd" id="3_survival"]
 [ext_resource type="Script" path="res://Scripts/WorldBootstrap.gd" id="4_world"]
+[ext_resource type="Script" path="res://Scripts/OriginalTerrain.gd" id="5_terrain"]
+[ext_resource type="Script" path="res://Scripts/DayNightLighting.gd" id="6_daynight"]
+[ext_resource type="Script" path="res://Scripts/CloudLayer.gd" id="7_clouds"]
+[ext_resource type="Script" path="res://Scripts/WorldMapBuilder.gd" id="8_worldmap"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape_player"]
 radius = 0.38
@@ -13,29 +17,84 @@ height = 1.8
 radius = 0.38
 height = 1.8
 
-[sub_resource type="BoxShape3D" id="BoxShape_ground"]
-size = Vector3(200, 1, 200)
+[sub_resource type="CylinderShape3D" id="IslandShape_ground"]
+radius = 35.0
+height = 0.6
 
-[sub_resource type="BoxMesh" id="BoxMesh_ground"]
-size = Vector3(200, 1, 200)
+[sub_resource type="CylinderMesh" id="IslandMesh_ground"]
+top_radius = 35.0
+bottom_radius = 35.0
+height = 0.6
+radial_segments = 64
+rings = 1
 
 [sub_resource type="StandardMaterial3D" id="Material_player"]
 albedo_color = Color(0.31, 0.42, 0.38, 1)
 
+[sub_resource type="StandardMaterial3D" id="Material_ground"]
+albedo_color = Color(0.62, 0.49, 0.31, 1)
+roughness = 1.0
+
+[sub_resource type="ProceduralSkyMaterial" id="SkyMaterial_day"]
+sky_top_color = Color(0.08, 0.28, 0.58, 1)
+sky_horizon_color = Color(0.62, 0.79, 0.9, 1)
+ground_bottom_color = Color(0.08, 0.11, 0.12, 1)
+ground_horizon_color = Color(0.48, 0.62, 0.66, 1)
+
+[sub_resource type="Sky" id="Sky_day"]
+sky_material = SubResource("SkyMaterial_day")
+
+[sub_resource type="Environment" id="Environment_day"]
+background_mode = 2
+sky = SubResource("Sky_day")
+ambient_light_source = 3
+ambient_light_color = Color(0.62, 0.72, 0.82, 1)
+ambient_light_energy = 0.85
+ssao_enabled = true
+ssao_radius = 0.8
+ssao_intensity = 0.65
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributes_day"]
+exposure_sensitivity = 100.0
+auto_exposure_enabled = false
+auto_exposure_scale = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_water"]
+size = Vector2(5000, 5000)
+
+[sub_resource type="StandardMaterial3D" id="Material_water"]
+shading_mode = 0
+albedo_color = Color(0.025, 0.24, 0.34, 1)
+metallic = 0.0
+roughness = 0.28
+
 [node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_day")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 rotation = Vector3(-0.9, -0.5, 0)
+light_energy = 1.25
 shadow_enabled = true
+shadow_bias = 0.035
+directional_shadow_max_distance = 120.0
+
+[node name="Ocean" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.0, 0)
+mesh = SubResource("PlaneMesh_water")
+material_override = SubResource("Material_water")
 
 [node name="Ground" type="StaticBody3D" parent="."]
-position = Vector3(0, -0.5, 0)
+position = Vector3(0, 0, 0)
+script = ExtResource("5_terrain")
 
 [node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("BoxMesh_ground")
+mesh = SubResource("IslandMesh_ground")
+material_override = SubResource("Material_ground")
 
 [node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape_ground")
+shape = SubResource("IslandShape_ground")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 position = Vector3(0, 0.05, 0)
@@ -56,7 +115,8 @@ position = Vector3(0, 1.55, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
 current = true
-fov = 78.0
+fov = 75.0
+attributes = SubResource("CameraAttributes_day")
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
 layer = 10
@@ -64,6 +124,15 @@ script = ExtResource("2_controls")
 
 [node name="SurvivalStats" type="Node" parent="."]
 script = ExtResource("3_survival")
+
+[node name="CloudLayer" type="MeshInstance3D" parent="."]
+script = ExtResource("7_clouds")
+
+[node name="DayNightLighting" type="Node" parent="."]
+script = ExtResource("6_daynight")
+
+[node name="WorldMapBuilder" type="Node3D" parent="."]
+script = ExtResource("8_worldmap")
 
 [node name="WorldBootstrap" type="Node3D" parent="."]
 script = ExtResource("4_world")

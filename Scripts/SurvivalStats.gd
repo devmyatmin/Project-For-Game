@@ -1,14 +1,14 @@
 extends Node
 class_name SurvivalStats
 
-@export var max_health: float = 100.0
+@export var max_health: float = 500.0
 @export var max_food: float = 100.0
 @export var max_water: float = 100.0
 @export var food_drain_per_second: float = 0.025
 @export var water_drain_per_second: float = 0.045
 @export var starvation_damage_per_second: float = 2.0
 
-var health: float = 100.0
+var health: float = 500.0
 var food: float = 100.0
 var water: float = 100.0
 var _hud: MobileControls
