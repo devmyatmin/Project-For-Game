@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="CylinderMesh" id="TrunkMesh"]
+top_radius = 0.11
+bottom_radius = 0.24
+height = 4.5
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CapsuleMesh" id="FrondMesh"]
+radius = 0.13
+height = 3.2
+radial_segments = 6
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="TrunkMaterial"]
+albedo_color = Color(0.32, 0.20, 0.10, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="FrondMaterial"]
+albedo_color = Color(0.13, 0.34, 0.16, 1)
+roughness = 0.92
+
+[node name="PalmTree" type="Node3D"]
+
+[node name="Trunk" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.25, 0)
+mesh = SubResource("TrunkMesh")
+material_override = SubResource("TrunkMaterial")
+
+[node name="FrondA" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.15, 0)
+rotation = Vector3(0, 0, 1.18)
+mesh = SubResource("FrondMesh")
+material_override = SubResource("FrondMaterial")
+
+[node name="FrondB" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.15, 0)
+rotation = Vector3(0, 0, -1.18)
+mesh = SubResource("FrondMesh")
+material_override = SubResource("FrondMaterial")
+
+[node name="FrondC" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.15, 0)
+rotation = Vector3(1.18, 0, 0)
+mesh = SubResource("FrondMesh")
+material_override = SubResource("FrondMaterial")
+
+[node name="FrondD" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.15, 0)
+rotation = Vector3(-1.18, 0, 0)
+mesh = SubResource("FrondMesh")
+material_override = SubResource("FrondMaterial")
+
+[node name="FrondE" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.15, 0)
+rotation = Vector3(0.82, 0, 0.82)
+mesh = SubResource("FrondMesh")
+material_override = SubResource("FrondMaterial")
+
+[node name="FrondF" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.15, 0)
+rotation = Vector3(-0.82, 0, -0.82)
+mesh = SubResource("FrondMesh")
+material_override = SubResource("FrondMaterial")
