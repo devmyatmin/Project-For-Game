@@ -42,17 +42,20 @@ func _process(delta: float) -> void:
 
 
 func _apply_time(time_value: float) -> void:
-	# At 0.25 the sun is highest; at 0.75 it is below the horizon.
+	# 0.0 = sunrise, 0.25 = noon, 0.5 = sunset, 0.75 = midnight.
+	# DirectionalLight3D emits along local -Z; negative X rotation aims its
+	# rays down onto the island while the sun is above the horizon.
 	var sun_angle := time_value * TAU
 	var sun_height := sin(sun_angle)
+	var sun_elevation := asin(clampf(sun_height, -1.0, 1.0))
 	var day_blend := clampf((sun_height + 0.16) / 0.42, 0.0, 1.0)
 	day_blend = day_blend * day_blend * (3.0 - 2.0 * day_blend)
 	var horizon_warmth := clampf(1.0 - absf(sun_height) * 3.2, 0.0, 1.0)
 
 	if _sun != null:
-		_sun.rotation.x = sun_angle
+		_sun.rotation.x = -sun_elevation
 		_sun.rotation.y = -0.5
-		_sun.light_energy = lerpf(0.025, 1.25, day_blend)
+		_sun.light_energy = lerpf(0.0, 0.9, day_blend)
 		var daylight_color := DAY_SUN_COLOR.lerp(SUNSET_COLOR, horizon_warmth * 0.72)
 		_sun.light_color = NIGHT_SUN_COLOR.lerp(daylight_color, day_blend)
 		_sun.shadow_enabled = day_blend > 0.08
@@ -60,7 +63,7 @@ func _apply_time(time_value: float) -> void:
 	if _world_environment != null and _world_environment.environment != null:
 		var environment := _world_environment.environment
 		environment.ambient_light_color = NIGHT_AMBIENT_COLOR.lerp(DAY_AMBIENT_COLOR, day_blend)
-		environment.ambient_light_energy = lerpf(0.22, 0.85, day_blend)
+		environment.ambient_light_energy = lerpf(0.12, 0.55, day_blend)
 		if _sky_material != null:
 			_sky_material.sky_top_color = NIGHT_SKY_TOP.lerp(DAY_SKY_TOP, day_blend)
 			var horizon_day := DAY_SKY_HORIZON.lerp(SUNSET_COLOR, horizon_warmth * 0.38)
