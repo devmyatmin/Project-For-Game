@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_player"]
 [ext_resource type="Script" path="res://Scripts/MobileControls.gd" id="2_controls"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/OriginalTerrain.gd" id="5_terrain"]
 [ext_resource type="Script" path="res://Scripts/DayNightLighting.gd" id="6_daynight"]
 [ext_resource type="Script" path="res://Scripts/CloudLayer.gd" id="7_clouds"]
+[ext_resource type="Script" path="res://Scripts/WorldMapBuilder.gd" id="8_worldmap"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape_player"]
 radius = 0.38
@@ -59,7 +60,7 @@ auto_exposure_enabled = false
 auto_exposure_scale = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_water"]
-size = Vector2(700, 700)
+size = Vector2(5000, 5000)
 
 [sub_resource type="StandardMaterial3D" id="Material_water"]
 shading_mode = 0
@@ -85,7 +86,7 @@ mesh = SubResource("PlaneMesh_water")
 material_override = SubResource("Material_water")
 
 [node name="Ground" type="StaticBody3D" parent="."]
-position = Vector3(0, -0.3, 0)
+position = Vector3(0, 0, 0)
 script = ExtResource("5_terrain")
 
 [node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
@@ -129,6 +130,9 @@ script = ExtResource("7_clouds")
 
 [node name="DayNightLighting" type="Node" parent="."]
 script = ExtResource("6_daynight")
+
+[node name="WorldMapBuilder" type="Node3D" parent="."]
+script = ExtResource("8_worldmap")
 
 [node name="WorldBootstrap" type="Node3D" parent="."]
 script = ExtResource("4_world")
