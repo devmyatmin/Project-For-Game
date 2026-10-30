@@ -8,7 +8,7 @@ var _terrain: OriginalTerrain
 
 func _ready() -> void:
     _terrain = get_node_or_null("../Ground") as OriginalTerrain
-    _place_player_on_terrain()
+    _place_player_on_terrain.call_deferred()
     _spawn_palm_trees()
     _spawn_pickup("stick", "Stick", Vector3(-1.0, 0.12, -2.6), false)
     _spawn_pickup("rock", "Rock", Vector3(1.0, 0.16, -3.2), true)
@@ -19,7 +19,8 @@ func _place_player_on_terrain() -> void:
     var player := get_node_or_null("../Player") as CharacterBody3D
     if player == null:
         return
-    player.position.y = _surface_y(player.position.x, player.position.z) + 0.05
+    # Raise the spawn point so the camera and capsule settle onto the terrain instead of starting partially embedded.
+    player.position.y = _surface_y(player.position.x, player.position.z) + 0.85
 
 
 func _surface_y(x: float, z: float) -> float:
