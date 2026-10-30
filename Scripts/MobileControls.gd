@@ -20,7 +20,8 @@ var _inventory_label: Label
 var _stick_active := false
 var _stick_touch := -1
 var _look_touch := -1
-const STICK_RADIUS := 58.0
+const STICK_RADIUS_BASE := 58.0
+var _stick_radius := STICK_RADIUS_BASE
 
 func _ready() -> void:
     var root := Control.new()
@@ -100,6 +101,71 @@ func _ready() -> void:
     _inventory_label.add_theme_color_override("font_color", Color(0.91, 0.94, 0.88, 0.8))
     _inventory_label.add_theme_font_size_override("font_size", 12)
     root.add_child(_inventory_label)
+
+    # Reflow the touch HUD whenever the device orientation or viewport changes.
+    get_viewport().size_changed.connect(_apply_responsive_layout)
+    _apply_responsive_layout()
+
+func _apply_responsive_layout() -> void:
+    var viewport_size := get_viewport().get_visible_rect().size
+    if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+        return
+
+    # The layout is authored around a 900x500 landscape viewport. Clamp the
+    # scale so controls stay usable on small phones without becoming enormous
+    # on tablets and high-resolution screens.
+    var ui_scale := clampf(minf(viewport_size.x / 900.0, viewport_size.y / 500.0), 0.72, 1.15)
+    _stick_radius = STICK_RADIUS_BASE * ui_scale
+    _stick_base.offset_left = 28.0 * ui_scale
+    _stick_base.offset_top = -164.0 * ui_scale
+    _stick_base.offset_right = 164.0 * ui_scale
+    _stick_base.offset_bottom = -28.0 * ui_scale
+    _stick_knob.offset_left = 39.0 * ui_scale
+    _stick_knob.offset_top = 39.0 * ui_scale
+    _stick_knob.offset_right = 97.0 * ui_scale
+    _stick_knob.offset_bottom = 97.0 * ui_scale
+
+    _set_button_layout("InteractButton", -104, -178, -24, -98, ui_scale)
+    _set_button_layout("RunButton", -194, -210, -114, -138, ui_scale)
+    _set_button_layout("CrouchButton", -184, -118, -112, -46, ui_scale)
+    _set_button_layout("JumpButton", -100, -96, -20, -16, ui_scale)
+
+    var hint := get_node_or_null("TouchHud/HudHint") as Label
+    if hint:
+        hint.offset_left = 24.0 * ui_scale
+        hint.offset_top = 20.0 * ui_scale
+        hint.offset_right = 180.0 * ui_scale
+        hint.offset_bottom = 48.0 * ui_scale
+        hint.add_theme_font_size_override("font_size", roundi(18.0 * ui_scale))
+
+    if is_instance_valid(_status_label):
+        _status_label.offset_left = 24.0 * ui_scale
+        _status_label.offset_top = 52.0 * ui_scale
+        _status_label.offset_right = 380.0 * ui_scale
+        _status_label.offset_bottom = 76.0 * ui_scale
+        _status_label.add_theme_font_size_override("font_size", roundi(12.0 * ui_scale))
+
+    if is_instance_valid(_inventory_label):
+        _inventory_label.offset_left = 24.0 * ui_scale
+        _inventory_label.offset_top = 78.0 * ui_scale
+        _inventory_label.offset_right = 380.0 * ui_scale
+        _inventory_label.offset_bottom = 100.0 * ui_scale
+        _inventory_label.add_theme_font_size_override("font_size", roundi(12.0 * ui_scale))
+
+    _stick_knob.position = (_stick_base.size - _stick_knob.size) * 0.5
+
+func _set_button_layout(node_name: String, left: float, top: float, right: float, bottom: float, ui_scale: float) -> void:
+    var button := get_node_or_null("TouchHud/" + node_name) as Button
+    if not button:
+        return
+    button.offset_left = left * ui_scale
+    button.offset_top = top * ui_scale
+    button.offset_right = right * ui_scale
+    button.offset_bottom = bottom * ui_scale
+    var base_font := 13.0 if node_name == "InteractButton" else 24.0
+    if node_name == "RunButton":
+        base_font = 15.0
+    button.add_theme_font_size_override("font_size", maxi(10, roundi(base_font * ui_scale)))
 
 func set_survival_status(health: float, water: float, food: float) -> void:
     if is_instance_valid(_status_label):
@@ -184,9 +250,9 @@ func _update_stick(screen_position: Vector2) -> void:
     var local := _stick_base.get_global_transform_with_canvas().affine_inverse() * screen_position
     var center := _stick_base.size * 0.5
     var offset := local - center
-    if offset.length() > STICK_RADIUS:
-        offset = offset.normalized() * STICK_RADIUS
-    movement_input = Vector2(offset.x / STICK_RADIUS, offset.y / STICK_RADIUS)
+    if offset.length() > _stick_radius:
+        offset = offset.normalized() * _stick_radius
+    movement_input = Vector2(offset.x / _stick_radius, offset.y / _stick_radius)
     _stick_knob.position = center + offset - (_stick_knob.size * 0.5)
 
 func _reset_stick() -> void:
