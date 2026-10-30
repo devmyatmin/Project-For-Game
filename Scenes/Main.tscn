@@ -53,7 +53,7 @@ ssao_intensity = 1.4
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributes_day"]
 exposure_sensitivity = 100.0
-auto_exposure_enabled = true
+auto_exposure_enabled = false
 auto_exposure_scale = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_water"]
