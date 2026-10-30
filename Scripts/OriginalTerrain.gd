@@ -3,9 +3,9 @@ class_name OriginalTerrain
 
 const HEIGHTMAP_RESOLUTION := 257
 const HEIGHTMAP_SAMPLE_COUNT := HEIGHTMAP_RESOLUTION * HEIGHTMAP_RESOLUTION
-const TERRAIN_WIDTH := 125.0
+const TERRAIN_WIDTH := 250.0
 const TERRAIN_HEIGHT := 150.0
-const TERRAIN_DEPTH := 500.0
+const TERRAIN_DEPTH := 250.0
 const HEIGHTMAP_ASSET_PATH := "res://VisualAssets/ExportedProject/Assets/TerrainData/Terrain_Story.asset"
 const GRASS_TEXTURE_PATH := "res://VisualAssets/ExportedProject/Assets/Texture2D/Terrain_Grass_Dirt_DIFF.png"
 const SAND_TEXTURE_PATH := "res://VisualAssets/ExportedProject/Assets/Texture2D/Terrain_Sand_Clean_DIFF.png"
@@ -84,7 +84,7 @@ func _load_original_heightmap() -> bool:
         for x in range(HEIGHTMAP_RESOLUTION):
             var byte_index: int = (source_z * HEIGHTMAP_RESOLUTION + x) * 2
             var sample: int = int(raw_bytes[byte_index]) | (int(raw_bytes[byte_index + 1]) << 8)
-            _heights[destination_z * HEIGHTMAP_RESOLUTION + x] = float(sample) / 65535.0 * TERRAIN_HEIGHT
+            _heights[destination_z * HEIGHTMAP_RESOLUTION + x] = float(sample) / 65535.0 * TERRAIN_HEIGHT - 100.0
 
     return true
 
