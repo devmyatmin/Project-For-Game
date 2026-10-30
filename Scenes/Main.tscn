@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_player"]
 [ext_resource type="Script" path="res://Scripts/MobileControls.gd" id="2_controls"]
@@ -46,7 +46,15 @@ background_mode = 2
 sky = SubResource("Sky_day")
 ambient_light_source = 3
 ambient_light_color = Color(0.62, 0.72, 0.82, 1)
-ambient_light_energy = 0.7
+ambient_light_energy = 0.85
+ssao_enabled = true
+ssao_radius = 1.2
+ssao_intensity = 1.4
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributes_day"]
+exposure_sensitivity = 100.0
+auto_exposure_enabled = true
+auto_exposure_scale = 0.5
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_water"]
 size = Vector2(700, 700)
@@ -63,7 +71,10 @@ environment = SubResource("Environment_day")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 rotation = Vector3(-0.9, -0.5, 0)
+light_energy = 1.25
 shadow_enabled = true
+shadow_bias = 0.035
+directional_shadow_max_distance = 120.0
 
 [node name="Ocean" type="MeshInstance3D" parent="."]
 position = Vector3(0, 12.0, 0)
@@ -100,7 +111,8 @@ position = Vector3(0, 1.55, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
 current = true
-fov = 78.0
+fov = 75.0
+attributes = SubResource("CameraAttributes_day")
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
 layer = 10
