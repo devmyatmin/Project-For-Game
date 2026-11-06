@@ -1,0 +1,49 @@
+name: Copy Original Unity Materials
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - work/stranded-deep-original
+    paths:
+      - .github/workflows/copy-original-materials.yml
+permissions:
+  contents: write
+jobs:
+  copy-original-materials:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dedicated branch
+        uses: actions/checkout@v4
+        with:
+          ref: work/stranded-deep-original
+          fetch-depth: 0
+      - name: Copy original Unity Material assets with cp
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="VisualAssets/ExportedProject/Assets/Material"
+          DEST="VisualAssets/OriginalMaterials/UnityMaterials"
+          test -d "$SRC"
+          mkdir -p "$DEST"
+          cp -a "$SRC/." "$DEST/"
+          echo "Source file count:"
+          find "$SRC" -type f | wc -l
+          echo "Copied file count:"
+          find "$DEST" -type f | wc -l
+          echo "Copied size:"
+          du -sh "$DEST"
+          echo "File extensions:"
+          find "$DEST" -type f | sed 's/.*\.//' | sort | uniq -c
+      - name: Commit copied files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add VisualAssets/OriginalMaterials/UnityMaterials
+          if git diff --cached --quiet; then
+            echo "No new copied files to commit."
+            exit 0
+          fi
+          git commit -m "Copy original Unity Material assets"
+          git push origin work/stranded-deep-original
