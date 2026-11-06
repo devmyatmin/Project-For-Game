@@ -4,11 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - work/stranded-deep-original
+      - work/godot-apk-export
     paths-ignore:
-      - 'OriginalDLLs/**'
-      - 'DecompiledDLLs/**'
-      - '.github/workflows/decompile-original-dlls.yml'
       - '.github/workflows/godot-build.yml'
 
 permissions:
