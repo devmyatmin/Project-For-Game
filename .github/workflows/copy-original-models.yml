@@ -2,6 +2,11 @@ name: Copy Original Unity Models
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - work/stranded-deep-original
+    paths:
+      - .github/workflows/copy-original-models.yml
 
 permissions:
   contents: write
