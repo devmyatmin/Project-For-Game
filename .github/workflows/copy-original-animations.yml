@@ -1,0 +1,78 @@
+name: Copy Original Unity Animations
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - work/stranded-deep-original
+    paths:
+      - .github/workflows/copy-original-animations.yml
+
+permissions:
+  contents: write
+
+jobs:
+  copy-original-animations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dedicated branch
+        uses: actions/checkout@v4
+        with:
+          ref: work/stranded-deep-original
+          fetch-depth: 0
+
+      - name: Copy Unity animation clips, controllers, and avatars
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="VisualAssets/ExportedProject/Assets"
+          DEST="VisualAssets/OriginalAnimations"
+
+          test -d "$ROOT/AnimationClip"
+          test -d "$ROOT/AnimatorController"
+          test -d "$ROOT/Avatar"
+
+          mkdir -p "$DEST/UnityAnimationClips" "$DEST/UnityAnimatorControllers" "$DEST/UnityAvatars"
+          cp -a "$ROOT/AnimationClip/." "$DEST/UnityAnimationClips/"
+          cp -a "$ROOT/AnimatorController/." "$DEST/UnityAnimatorControllers/"
+          cp -a "$ROOT/Avatar/." "$DEST/UnityAvatars/"
+
+          echo "Animation clip files (including .meta):"
+          find "$DEST/UnityAnimationClips" -type f | wc -l
+          echo "Animator controller files (including .meta):"
+          find "$DEST/UnityAnimatorControllers" -type f | wc -l
+          echo "Avatar files (including .meta):"
+          find "$DEST/UnityAvatars" -type f | wc -l
+          echo "Total copied files:"
+          find "$DEST" -type f | wc -l
+          echo "Total copied size:"
+          du -sh "$DEST"
+
+      - name: Commit and sync branch safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH="work/stranded-deep-original"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add VisualAssets/OriginalAnimations
+
+          if git diff --cached --quiet; then
+            echo "No new animation files to commit."
+            exit 0
+          fi
+
+          git commit -m "Copy original Unity animation assets"
+
+          for attempt in 1 2 3; do
+            git fetch origin "$BRANCH"
+            git rebase "origin/$BRANCH"
+            if git push origin "HEAD:refs/heads/$BRANCH"; then
+              echo "Push succeeded on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying after syncing."
+          done
+
+          echo "Push failed after 3 attempts."
+          exit 1
