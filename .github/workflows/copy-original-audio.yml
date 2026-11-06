@@ -54,7 +54,7 @@ jobs:
           du -sh "$DEST"
 
           # Verify copied file names and bytes against source.
-          diff -qr "$CLIPS" "$DEST/UnityAudioClips"
+          diff -qr --exclude=Duplicates "$CLIPS" "$DEST/UnityAudioClips"
           diff -qr "$MIXERS" "$DEST/UnityAudioMixerControllers"
 
           # Keep one canonical payload per SHA-256; move identical extras (and their .meta)
