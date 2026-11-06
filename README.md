@@ -67,3 +67,26 @@ The Eel controller file itself contains states, transitions, parameters (includi
 The original Unity container files commonly named `globalgamemanagers.assets`, `resources.assets`, and `sharedassets*.assets` were not found in the repository tree during this check. This records repository presence only; it does not mean the original game files do not exist elsewhere.
 
 For the extracted VisualAssets category counts and conversion notes, see [`VisualAssets/ASSET_AUDIT.md`](VisualAssets/ASSET_AUDIT.md).
+
+
+### Prefab and Scene assessment
+
+**Unity Prefab inventory:** The repository tree contains 25 Unity `.prefab` files (about 5.28 MiB of Git blob content). They are distributed across extracted `VisualAssets/ExportedProject/Assets` folders:
+
+| Folder | Prefab count | Included assets |
+|---|---:|---|
+| `GameObject/` | 5 | `Explosion_JetDebris`, `Explosion_Jetcrash`, `Label - Statistics Names`, `Label - Statistics Values`, `Label - Status Effect` |
+| `resources asset bundles/missions/mission_eel/` | 2 | `ENVIRONMENT`, `GOAL_EEL` |
+| `resources asset bundles/missions/mission_shark/` | 2 | `ENVIRONMENT`, `GOAL_SHARK` |
+| `resources asset bundles/missions/mission_squid/` | 2 | `ENVIRONMENT`, `GOAL_SQUID` |
+| `resources asset bundles/scenes/end game/` | 9 | `AIRCRAFT_ASSET`, `ENVIRONMENT`, `REPAIR_ENGINE`, `REPAIR_PROPELLER`, `REPAIR_RUDDER_PEDAL`, `STATION_AIRCRAFT`, `STATION_FOOD`, `STATION_FUEL`, `STATION_WATER` |
+| `resources asset bundles/scenes/intro/` | 1 | `Intro_Assets` |
+| `resources asset bundles/watches/beepi/` | 2 | `UI - Watch`, `View - 3D Watch` |
+| `resources asset bundles/watches/getbit/` | 2 | `UI - Watch`, `View - 3D Watch` |
+| **Total** | **25** | **Prefab files present in the tree** |
+
+**Scene inventory:** No Unity `.unity` scene files were found anywhere in the branch tree. The repository does contain a Godot scene, `Scenes/Main.tscn` (54 bytes), which is not an original Unity scene. The Unity-extracted prefab paths include bundle-named folders such as `resources asset bundles/scenes/end game` and `.../intro`, but those are folders containing prefabs—not scene files. Therefore the original Unity scene hierarchy/layout and scene-level wiring are not present as standalone scene assets in this branch based on extension/path inventory.
+
+**Godot conversion implications:** Prefabs are Unity serialized GameObject/component hierarchies. Their existence does not guarantee all external model, material, texture, script, or GUID dependencies resolve. The end-game environment/aircraft and intro prefab are relatively large serialized files; their contents and dependency references should be checked during import/conversion. Prefabs may be useful as hierarchy/component reference material, but they are not directly Godot `.tscn` scenes. Scene composition, node structure, script bindings, physics/collider setup, and references will need a conversion/reconstruction pass.
+
+**Audit limits:** Counts and grouping above come from repository tree paths, filenames, and Git blob sizes. This pass did not parse Unity YAML contents, enumerate prefab GameObjects/components, resolve GUIDs, inspect nested prefab links, or test importing/running these assets in Unity or Godot. No claim is made that prefab dependencies are complete or functional.
