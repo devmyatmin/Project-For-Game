@@ -109,3 +109,17 @@ The original extracted Unity Texture2D files were copied into the Godot project 
 - SHA/blob identity comparison against the source folder: **578/578 files matched**, with no name or blob SHA mismatches.
 
 The source and destination inventories are equal; this validates that the texture files and their Unity metadata were copied without changes. These PNGs are image files and may be imported by Godot, but Unity-specific `.meta` data is retained as reference and is not itself Godot metadata. Godot import/runtime verification has not yet been performed.
+
+
+## Original Unity Material copy workflow
+
+Date: 2026-11-07
+Branch: `work/stranded-deep-original`
+
+- Source: `VisualAssets/ExportedProject/Assets/Material/`
+- Intended destination: `VisualAssets/OriginalMaterials/UnityMaterials/`
+- Workflow: `.github/workflows/copy-original-materials.yml`, copy method `cp -a "$SRC/." "$DEST/"`
+- Source inventory: **238 files** — 119 Unity `.mat` and 119 `.meta`
+- Source total size: **291,614 bytes**
+
+The workflow and destination README have been committed. Destination copy and source/destination SHA verification are **pending a successful GitHub Actions run**. Unity `.mat` assets are preserved as originals; they are not Godot `.tres` materials. Godot conversion/import/runtime tests have not been performed.
