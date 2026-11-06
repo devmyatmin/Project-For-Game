@@ -10,10 +10,18 @@ Inventory checked against the GitHub repository tree on 2026-11-07.
 |---|---:|---|
 | `VisualAssets/ExportedProject/Assets/**/*.assets` | 0 | No Unity serialized bundle files with the `.assets` extension found in this branch. |
 | `VisualAssets/ExportedProject/Assets/**/*.asset` | 209 | Extracted Unity serialized asset files (`.asset` extension); distinct from `.assets` containers. |
-| Unity `Mesh/` inventory (per asset audit) | 164 | Mesh data exists in extracted Unity `.asset` files. These are Unity-serialized meshes, not standalone interchange model files. |
+| Unity `Mesh/` inventory (per asset audit) | 164 | Mesh data exists in extracted Unity `.asset` files; not standalone interchange model files. |
 | Standalone model formats (`.fbx`, `.obj`, `.glb`, `.gltf`, `.dae`, `.3ds`, `.blend`, `.mesh`, `.ma`, `.mb`, `.usd`, `.usdz`, `.abc`) | 0 | No files in these model/interchange formats found in the branch tree. |
+| `Texture2D/` exported inventory (per audit/tree) | 289 | Extracted texture assets are present. |
+| Texture image files (`.png`) under exported Assets | 293 | Tree scan counted 293 PNG files across the Assets tree; 289 are in the `Texture2D/` category. |
+| `Material/` exported inventory (per audit/tree) | 119 | Unity material assets are present in the extracted `Material/` folder. |
+| `.mat` files under exported Assets | 121 | Tree scan counted 121 `.mat` files total; folder inventory contains 119. |
 | `.resS` | 0 | Not found in the repository tree. |
 | `.resource` | 0 | Not found in the repository tree. |
+
+### Textures and materials assessment
+
+**Texture and Material assets are present in the repository's extracted Unity project.** Texture names in the tree include examples such as `Anchor1_albedo.png`, `Anchor1_NRM.png`, `BUOY_DIFF.png`, `BUOY_NRM.png`, `Terrain_DIFF.png`, and `Terrain_NRM.png`. The materials are Unity `.mat` files; their shader/property setup needs conversion or recreation in Godot. Texture availability does not itself verify that every mesh's material/texture references are intact, nor that the textures/materials import correctly in Godot. This was a repository tree/file-name inventory, not a runtime or conversion test.
 
 ### Model availability assessment
 
