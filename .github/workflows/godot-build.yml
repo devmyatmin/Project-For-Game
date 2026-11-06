@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - work/stranded-deep-original
+    paths-ignore:
+      - 'OriginalDLLs/**'
+      - 'DecompiledDLLs/**'
+      - '.github/workflows/decompile-original-dlls.yml'
+      - '.github/workflows/godot-build.yml'
 
 permissions:
   contents: read
