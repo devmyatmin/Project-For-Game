@@ -1,0 +1,98 @@
+name: Decompile Original Stranded Deep DLLs
+
+on:
+  push:
+    branches:
+      - work/stranded-deep-original
+    paths:
+      - "OriginalDLLs/**"
+      - ".github/workflows/decompile-original-dlls.yml"
+  workflow_dispatch:
+    inputs:
+      assembly_csharp_url:
+        description: "Direct HTTPS download URL for Assembly-CSharp.dll (optional if committed under OriginalDLLs/)"
+        required: false
+        type: string
+      firstpass_url:
+        description: "Direct HTTPS download URL for Assembly-CSharp-firstpass.dll (optional if committed under OriginalDLLs/)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  decompile:
+    name: Download ILSpy and decompile both assemblies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Install ILSpy command-line decompiler
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ilspy-tools"
+          dotnet tool install ilspycmd \
+            --tool-path "$RUNNER_TEMP/ilspy-tools" \
+            --version 11.2.0.10050
+          echo "$RUNNER_TEMP/ilspy-tools" >> "$GITHUB_PATH"
+          ilspycmd --version
+
+      - name: Prepare the two original DLL inputs
+        env:
+          ASSEMBLY_CSHARP_URL: ${{ inputs.assembly_csharp_url }}
+          FIRSTPASS_URL: ${{ inputs.firstpass_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p OriginalDLLs
+          download_if_supplied() {
+            local url="$1"
+            local destination="$2"
+            if [[ -n "$url" ]]; then
+              case "$url" in
+                https://*) ;;
+                *) echo "::error::Only HTTPS download URLs are accepted."; exit 1 ;;
+              esac
+              curl --fail --location --retry 3 --output "$destination" "$url"
+            fi
+          }
+          download_if_supplied "$ASSEMBLY_CSHARP_URL" "OriginalDLLs/Assembly-CSharp.dll"
+          download_if_supplied "$FIRSTPASS_URL" "OriginalDLLs/Assembly-CSharp-firstpass.dll"
+
+          for dll in Assembly-CSharp.dll Assembly-CSharp-firstpass.dll; do
+            if [[ ! -s "OriginalDLLs/$dll" ]]; then
+              echo "::error::Missing OriginalDLLs/$dll. Supply its HTTPS URL in Run workflow, or commit the DLL into OriginalDLLs/."
+              exit 1
+            fi
+          done
+
+      - name: Decompile Assembly-CSharp.dll
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p DecompiledDLLs/Assembly-CSharp
+          ilspycmd -p -o DecompiledDLLs/Assembly-CSharp OriginalDLLs/Assembly-CSharp.dll
+
+      - name: Decompile Assembly-CSharp-firstpass.dll
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p DecompiledDLLs/Assembly-CSharp-firstpass
+          ilspycmd -p -o DecompiledDLLs/Assembly-CSharp-firstpass OriginalDLLs/Assembly-CSharp-firstpass.dll
+
+      - name: Upload decompiled source folders
+        uses: actions/upload-artifact@v4
+        with:
+          name: stranded-deep-decompiled-dlls
+          path: DecompiledDLLs/
+          if-no-files-found: error
+          compression-level: 9
+          retention-days: 14
