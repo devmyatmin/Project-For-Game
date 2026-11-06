@@ -6,7 +6,6 @@ on:
       - work/stranded-deep-original
     paths:
       - "OriginalDLLs/**"
-      - ".github/workflows/decompile-original-dlls.yml"
   workflow_dispatch:
     inputs:
       assembly_csharp_url:
