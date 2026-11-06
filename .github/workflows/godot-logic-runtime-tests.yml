@@ -1,0 +1,33 @@
+name: Godot Logic Runtime Tests
+
+on:
+  push:
+    branches:
+      - work/godot-logic-runtime
+    paths:
+      - "GodotLogic/**"
+      - ".github/workflows/godot-logic-runtime-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  logic-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot 4.5.1
+        shell: bash
+        run: |
+          set -euo pipefail
+          wget -q https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_linux.x86_64.zip -O /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp/godot
+          sudo install -m 0755 /tmp/godot/Godot_v4.5.1-stable_linux.x86_64 /usr/local/bin/godot
+          godot --version
+
+      - name: Run GDScript logic tests
+        run: godot --headless --path . --script res://GodotLogic/tests/run_tests.gd
