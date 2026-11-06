@@ -18,8 +18,19 @@ Inventory checked against the GitHub repository tree on 2026-11-07.
 | `.mat` files under exported Assets | 121 | Tree scan counted 121 `.mat` files total; folder inventory contains 119. |
 | `.anim` files under exported Assets | 45 | Unity animation clip assets found in `AnimationClip/`; their combined Git blob size is about 100.0 MB. |
 | `.anim.meta` files | 45 | Each of the 45 listed animation clips has a corresponding metadata file in the repository tree. |
-| `.controller` files under exported Assets | 4 | Unity Animator Controllers are present: Boss Shark, Eel, Seaplane, and Squid. |\n| `.ogg` files under exported Assets | 53 | Extracted audio clips in Ogg format. |\n| `.wav` files under exported Assets | 1 | Extracted audio clip in WAV format. |\n| Audio files total (`.ogg` + `.wav`) | 54 | Matches the existing `AudioClip/` inventory of 54. |\n| Audio `.meta` files | 54 | Corresponding Unity metadata files found for these clips. |\n| `.mp3`, `.aiff`, `.aif`, `.flac`, `.bank`, `.wem` | 0 | These audio formats were not found in the branch tree. |
+| `.controller` files under exported Assets | 4 | Unity Animator Controllers are present: Boss Shark, Eel, Seaplane, and Squid. |
+| `.ogg` files under exported Assets | 53 | Extracted audio clips in Ogg format. |
+| `.wav` files under exported Assets | 1 | Extracted audio clip in WAV format. |
+| Audio files total (`.ogg` + `.wav`) | 54 | Matches the existing `AudioClip/` inventory of 54. |
+| Audio `.meta` files | 54 | Corresponding Unity metadata files found for these clips. |
+| `.mp3`, `.aiff`, `.aif`, `.flac`, `.bank`, `.wem` | 0 | These audio formats were not found in the branch tree. |
 | `.overrideController` files | 0 | No Animator Override Controller files found. |
+| `Sprite/` serialized sprite assets | 21 | Unity sprite references/data files are present. |
+| UI-related PNG atlas/texture candidates (named `*Sprite*.png` or `*Icon*.png`) | 13 | UI and HUD textures found in the `Texture2D/` folder; exact slice/atlas composition needs checking. |
+| `Font/` files | 1 | `LiberationSans.ttf` is the only font file found. |
+| `.ttf` / `.otf` fonts under Assets | 1 / 0 | No other standalone font formats found. |
+| `.shader` files under exported Assets | 13 | Unity shader source files present. |
+| `.shadervariants` files | 0 | No serialized shader-variant files found. |
 | `.resS` | 0 | Not found in the repository tree. |
 | `.resource` | 0 | Not found in the repository tree. |
 
@@ -27,11 +38,27 @@ Inventory checked against the GitHub repository tree on 2026-11-07.
 
 **Texture and Material assets are present in the repository's extracted Unity project.** Texture names in the tree include examples such as `Anchor1_albedo.png`, `Anchor1_NRM.png`, `BUOY_DIFF.png`, `BUOY_NRM.png`, `Terrain_DIFF.png`, and `Terrain_NRM.png`. The materials are Unity `.mat` files; their shader/property setup needs conversion or recreation in Godot. Texture availability does not itself verify that every mesh's material/texture references are intact, nor that the textures/materials import correctly in Godot. This was a repository tree/file-name inventory, not a runtime or conversion test.
 
+### UI Sprite, Font, and Shader assessment
+
+**UI Sprite assets:** The extracted Unity `Sprite/` folder contains 21 serialized `.asset` entries (excluding `.meta`): `Border`, `Classification_Food`, `Crafting_Icon`, `Fuel_Icon`, radial-bar background/fill, five skill sprites, `Sprite_Bars`, heatwave/temperature sprites, four vital HUD sprites (Health, Hunger, SPF, Thirst), `Water_Icon`, `Waypoint_Marker`, and `WhitePixel`. The Assets tree also includes UI-named PNG texture candidates such as skill sprite images and HUD bar/vital textures. These are Unity serialized sprite definitions and PNG source textures, not yet confirmed as Godot-ready sprite atlases or correctly sliced UI components. UI scene/layout/pivot/9-slice settings and sprite references need validation/reconstruction.
+
+**Fonts:** Only one standalone font file was found under the extracted Assets tree: `Font/LiberationSans.ttf`. TextMeshPro font asset scripts exist, but those are scripts, not font files. TMP font atlas/material configuration and text rendering behavior have not been checked; a Godot font resource may need to be created and UI typography reconfigured.
+
+**Shaders:** The exported `Shader/` directory contains 13 `.shader` source files, including Beam Team shaders for watch screen, additive night-fade particles, skin, terrain base/bumped-specular/vertex-lit, refractive glass, `Projector_Multiply`, two-sided Standard shaders, and TextMeshPro distance-field/mobile distance-field shaders. There are no `.shadervariants` in the tree. Unity shader code and render-pipeline/material properties are not directly Godot-compatible; shader logic/material parameters must be ported or recreated using Godot ShaderLanguage and Godot materials. The count confirms file presence only, not shader compilation, visual equivalence, or successful Godot import.
+
+This UI/font/shader audit was based on repository tree paths and filenames. It does not verify the actual visual appearance, sprite atlas slices, dependency GUID resolution, font glyph coverage, shader compile results, or Godot runtime behavior.
+
 ### Model availability assessment
 
 **Mesh/model data is present in the extracted project, but standalone original/interchange model files are not present in this branch.** The extracted Mesh files are Unity serialized `.asset` data and cannot be presumed to import directly into Godot. A verified export/conversion step to a Godot-supported model format (such as `.glb`) is still required. Counts above reflect repository file-tree inspection and the existing [`VisualAssets/ASSET_AUDIT.md`](VisualAssets/ASSET_AUDIT.md); individual mesh conversion and Godot import have not been tested.
 
-### Audio availability assessment\n\n**Audio clips are present in the extracted Unity project:** 53 `.ogg` files and 1 `.wav` file (54 total), matching the existing `AudioClip/` inventory. The tree also contains 54 corresponding `.meta` files. Sample clip names indicate intro/cinematic sounds (`Intro_Crash`, `Intro_Explosion`, `Intro_Jet_Engine`), endgame/cockpit audio, and creature/boss effects (`eel_boss_attack`, `shark_attack_1` through `_4`, squid boss attack sounds), plus ambience and object sounds such as `Buoy_Loop` and metal door sounds.\n\nThis is a repository tree/name inventory only: audio playback, completeness of references, encoding quality, and Godot import were not tested. Ogg and WAV are formats Godot can generally import, but Unity AudioClip settings, looping/3D attenuation, mixer routing, and gameplay triggers may need to be recreated in Godot.\n\n### Animation availability assessment
+### Audio availability assessment
+
+**Audio clips are present in the extracted Unity project:** 53 `.ogg` files and 1 `.wav` file (54 total), matching the existing `AudioClip/` inventory. The tree also contains 54 corresponding `.meta` files. Sample clip names indicate intro/cinematic sounds (`Intro_Crash`, `Intro_Explosion`, `Intro_Jet_Engine`), endgame/cockpit audio, and creature/boss effects (`eel_boss_attack`, `shark_attack_1` through `_4`, squid boss attack sounds), plus ambience and object sounds such as `Buoy_Loop` and metal door sounds.
+
+This is a repository tree/name inventory only: audio playback, completeness of references, encoding quality, and Godot import were not tested. Ogg and WAV are formats Godot can generally import, but Unity AudioClip settings, looping/3D attenuation, mixer routing, and gameplay triggers may need to be recreated in Godot.
+
+### Animation availability assessment
 
 **Animation data is present in the repository as Unity-native clips and Animator Controller state-machine assets.** The tree inventory found 45 `.anim` clips (each with a matching `.anim.meta`) and 4 `.controller` files. Clip examples in the repository include aircraft crash/takeoff, eel idle/swimming/attack/damage/death, great-white shark swim/bite/damage/turning, seaplane cockpit actions, and squid attack/swim/damage/death clips. The four controllers are `Boss_Shark_Controller.controller`, `EelController.controller`, `Seaplane Animator.controller`, and `SquidController.controller`.
 
