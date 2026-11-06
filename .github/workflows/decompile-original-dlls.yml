@@ -27,8 +27,8 @@ jobs:
           set -euo pipefail
           python -m pip install --quiet gdown
           mkdir -p OriginalDLLs
-          gdown --id "$ASSEMBLY_CSHARP_ID" -O OriginalDLLs/Assembly-CSharp.dll
-          gdown --id "$FIRSTPASS_ID" -O OriginalDLLs/Assembly-CSharp-firstpass.dll
+          gdown "$ASSEMBLY_CSHARP_ID" -O OriginalDLLs/Assembly-CSharp.dll
+          gdown "$FIRSTPASS_ID" -O OriginalDLLs/Assembly-CSharp-firstpass.dll
           test -s OriginalDLLs/Assembly-CSharp.dll
           test -s OriginalDLLs/Assembly-CSharp-firstpass.dll
 
