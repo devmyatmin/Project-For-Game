@@ -61,3 +61,29 @@ Extracted content counts (excluding `.meta` files):
 - Individual asset serialization/conversion tests: not yet performed.
 - Godot editor import/build: not yet verified.
 - Android device performance: not yet verified.
+
+
+## Original Unity Mesh copy record
+
+Date: 2026-11-07
+Branch: `work/stranded-deep-original`
+
+The workflow copied the extracted Unity Mesh folder into the Godot project repository at:
+
+- Source: `VisualAssets/ExportedProject/Assets/Mesh/`
+- Project destination: `VisualAssets/OriginalModels/UnityMeshAssets/`
+- Copy method: `cp -a "$SRC/." "$DEST/"` (preserves the source directory contents and file metadata where supported)
+
+### Copy verification
+
+- Destination files: **328 total**
+- Unity Mesh `.asset` files: **164**
+- Unity metadata `.meta` files: **164**
+- Mesh `.asset` file size total: **42,432,241 bytes** (about 40.5 MiB)
+- All destination entries are present in the repository branch.
+
+A content inspection of `Buoy.asset` confirmed Unity Mesh serialization (`!u!43`), `m_IsReadable: 1`, vertex data and index buffer. The mesh reports **6,146 vertices** and **14,085 submesh indices**. This is genuine serialized mesh data, not just a filename placeholder.
+
+### Import/conversion status
+
+These are still Unity serialized Mesh assets. The copy is now stored inside the Godot project repository, but it is **not yet converted to Godot-importable GLB/GLTF/OBJ**, and no Godot import/runtime test has been done. Keep this folder as original/reference source; converted Godot assets should be kept in a separate destination so the original data is not overwritten.
