@@ -1,0 +1,91 @@
+name: Copy Original Unity Audio
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - work/stranded-deep-original
+    paths:
+      - .github/workflows/copy-original-audio.yml
+
+permissions:
+  contents: write
+
+jobs:
+  copy-original-audio:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dedicated branch
+        uses: actions/checkout@v4
+        with:
+          ref: work/stranded-deep-original
+          fetch-depth: 0
+
+      - name: Inspect and copy Unity audio assets and mixer files
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="VisualAssets/ExportedProject/Assets"
+          DEST="VisualAssets/OriginalAudio"
+          CLIPS="$ROOT/AudioClip"
+          MIXERS="$ROOT/AudioMixerController"
+
+          test -d "$CLIPS"
+          test -d "$MIXERS"
+          mkdir -p "$DEST/UnityAudioClips" "$DEST/UnityAudioMixerControllers"
+
+          # Copy the original encoded clips and their Unity importer metadata.
+          cp -a "$CLIPS/." "$DEST/UnityAudioClips/"
+          cp -a "$MIXERS/." "$DEST/UnityAudioMixerControllers/"
+
+          echo "=== SOURCE COUNTS ==="
+          find "$CLIPS" -maxdepth 1 -type f | sort | wc -l
+          find "$MIXERS" -maxdepth 1 -type f | sort | wc -l
+          echo "=== DESTINATION COUNTS ==="
+          find "$DEST/UnityAudioClips" -maxdepth 1 -type f | sort | wc -l
+          find "$DEST/UnityAudioMixerControllers" -maxdepth 1 -type f | sort | wc -l
+          echo "=== EXTENSIONS ==="
+          find "$DEST" -type f | awk -F. '{print tolower($NF)}' | sort | uniq -c
+          echo "=== SIZE ==="
+          du -sh "$DEST"
+
+          # Verify copied file names and bytes against source.
+          diff -qr "$CLIPS" "$DEST/UnityAudioClips"
+          diff -qr "$MIXERS" "$DEST/UnityAudioMixerControllers"
+
+          # Generate a reproducible SHA-256 manifest for the copied payload.
+          (cd "$DEST" && find UnityAudioClips UnityAudioMixerControllers -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum) > "$DEST/SHA256SUMS.txt"
+          sha256sum -c "$DEST/SHA256SUMS.txt"
+
+          # Check byte-identical audio payload duplicates without deleting anything.
+          echo "=== IDENTICAL AUDIO PAYLOADS (informational; retained) ==="
+          find "$DEST/UnityAudioClips" -type f \( -name '*.ogg' -o -name '*.wav' \) -print0 | xargs -0 sha256sum | sort
+
+      - name: Commit and sync branch safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH="work/stranded-deep-original"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add VisualAssets/OriginalAudio
+
+          if git diff --cached --quiet; then
+            echo "No new audio files to commit."
+            exit 0
+          fi
+
+          git commit -m "Copy original Unity audio assets"
+
+          for attempt in 1 2 3; do
+            git fetch origin "$BRANCH"
+            git rebase "origin/$BRANCH"
+            if git push origin "HEAD:refs/heads/$BRANCH"; then
+              echo "Push succeeded on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying after syncing."
+          done
+
+          echo "Push failed after 3 attempts."
+          exit 1
