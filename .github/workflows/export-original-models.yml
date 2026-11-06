@@ -1,0 +1,47 @@
+name: Export Stranded Deep Unity Meshes to OBJ
+
+on:
+  push:
+    branches:
+      - work/stranded-deep-original
+    paths:
+      - "VisualAssets/ExportedProject/Assets/Mesh/**"
+      - "VisualAssets/tools/export_unity_meshes.py"
+      - ".github/workflows/export-original-models.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export-meshes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install YAML parser
+        run: python -m pip install --quiet PyYAML
+
+      - name: Export serialized Unity Mesh assets to OBJ
+        run: python VisualAssets/tools/export_unity_meshes.py
+
+      - name: Commit OBJ exports and report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add VisualAssets/OriginalModels/
+          if git diff --cached --quiet; then
+            echo "No model export changes to commit."
+          else
+            git commit -m "assets: export Unity meshes to OBJ"
+            git push origin HEAD:"$GITHUB_REF_NAME"
+          fi
