@@ -87,3 +87,25 @@ A content inspection of `Buoy.asset` confirmed Unity Mesh serialization (`!u!43`
 ### Import/conversion status
 
 These are still Unity serialized Mesh assets. The copy is now stored inside the Godot project repository, but it is **not yet converted to Godot-importable GLB/GLTF/OBJ**, and no Godot import/runtime test has been done. Keep this folder as original/reference source; converted Godot assets should be kept in a separate destination so the original data is not overwritten.
+
+
+## Original Unity Texture2D copy record
+
+Date: 2026-11-07
+Branch: `work/stranded-deep-original`
+
+The original extracted Unity Texture2D files were copied into the Godot project repository.
+
+- Source: `VisualAssets/ExportedProject/Assets/Texture2D/`
+- Project destination: `VisualAssets/OriginalTextures/UnityTexture2D/`
+- Copy method: workflow `.github/workflows/copy-original-textures.yml` uses `cp -a "$SRC/." "$DEST/"`
+
+### Copy verification
+
+- Destination entries: **578 files**
+- PNG texture images: **289**
+- Unity `.meta` files: **289**
+- PNG file size total: **773,316,109 bytes** (about **737.4 MiB**)
+- SHA/blob identity comparison against the source folder: **578/578 files matched**, with no name or blob SHA mismatches.
+
+The source and destination inventories are equal; this validates that the texture files and their Unity metadata were copied without changes. These PNGs are image files and may be imported by Godot, but Unity-specific `.meta` data is retained as reference and is not itself Godot metadata. Godot import/runtime verification has not yet been performed.
