@@ -21,6 +21,10 @@ jobs:
           ref: work/stranded-deep-original
           fetch-depth: 0
 
+      - name: Start original audio extraction
+        shell: bash
+        run: echo "Starting original Unity audio extraction and duplicate quarantine."
+
       - name: Inspect and copy Unity audio assets and mixer files
         shell: bash
         run: |
@@ -53,7 +57,6 @@ jobs:
           diff -qr "$CLIPS" "$DEST/UnityAudioClips"
           diff -qr "$MIXERS" "$DEST/UnityAudioMixerControllers"
 
-          # Generate a reproducible SHA-256 manifest for the copied payload.
           # Keep one canonical payload per SHA-256; move identical extras (and their .meta)
           # into a separate quarantine folder so original GUID metadata is preserved.
           DUP="$DEST/UnityAudioClips/Duplicates"
