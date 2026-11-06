@@ -34,7 +34,7 @@ jobs:
           test -d "$MIXERS"
           mkdir -p "$DEST/UnityAudioClips" "$DEST/UnityAudioMixerControllers"
 
-          # Copy the original encoded clips and their Unity importer metadata.
+          # Copy original encoded audio payloads and preserve Unity importer metadata.
           cp -a "$CLIPS/." "$DEST/UnityAudioClips/"
           cp -a "$MIXERS/." "$DEST/UnityAudioMixerControllers/"
 
