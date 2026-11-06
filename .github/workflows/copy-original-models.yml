@@ -1,0 +1,49 @@
+name: Copy Original Unity Models
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  copy-original-models:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dedicated branch
+        uses: actions/checkout@v4
+        with:
+          ref: work/stranded-deep-original
+          fetch-depth: 0
+
+      - name: Copy original Unity Mesh assets with cp
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="VisualAssets/ExportedProject/Assets/Mesh"
+          DEST="VisualAssets/OriginalModels/UnityMeshAssets"
+
+          test -d "$SRC"
+          mkdir -p "$DEST"
+          cp -a "$SRC/." "$DEST/"
+
+          echo "Source file count:"
+          find "$SRC" -type f | wc -l
+          echo "Copied file count:"
+          find "$DEST" -type f | wc -l
+          echo "Copied size:"
+          du -sh "$DEST"
+
+      - name: Commit copied files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add VisualAssets/OriginalModels/UnityMeshAssets
+          if git diff --cached --quiet; then
+            echo "No new copied files to commit."
+            exit 0
+          fi
+          git commit -m "Copy original Unity mesh assets"
+          git push origin work/stranded-deep-original
