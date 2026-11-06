@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - work/stranded-deep-original
-    paths:
-      - "OriginalDLLs/**"
   workflow_dispatch:
     inputs:
       assembly_csharp_url:
@@ -28,12 +26,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check whether both DLL inputs are available
+        id: inputs
+        env:
+          ASSEMBLY_CSHARP_URL: ${{ inputs.assembly_csharp_url }}
+          FIRSTPASS_URL: ${{ inputs.firstpass_url }}
+        shell: bash
+        run: |
+          if [[ -n "$ASSEMBLY_CSHARP_URL" && -n "$FIRSTPASS_URL" ]] || \
+             [[ -s "OriginalDLLs/Assembly-CSharp.dll" && -s "OriginalDLLs/Assembly-CSharp-firstpass.dll" ]]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Skipping decompilation: provide both DLL URLs with Run workflow or commit both DLLs under OriginalDLLs/."
+          fi
+
       - name: Set up .NET 10
+        if: steps.inputs.outputs.ready == 'true'
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "10.0.x"
 
       - name: Install ILSpy command-line decompiler
+        if: steps.inputs.outputs.ready == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -45,6 +60,7 @@ jobs:
           ilspycmd --version
 
       - name: Prepare the two original DLL inputs
+        if: steps.inputs.outputs.ready == 'true'
         env:
           ASSEMBLY_CSHARP_URL: ${{ inputs.assembly_csharp_url }}
           FIRSTPASS_URL: ${{ inputs.firstpass_url }}
@@ -74,6 +90,7 @@ jobs:
           done
 
       - name: Decompile Assembly-CSharp.dll
+        if: steps.inputs.outputs.ready == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -81,6 +98,7 @@ jobs:
           ilspycmd -p -o DecompiledDLLs/Assembly-CSharp OriginalDLLs/Assembly-CSharp.dll
 
       - name: Decompile Assembly-CSharp-firstpass.dll
+        if: steps.inputs.outputs.ready == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -88,6 +106,7 @@ jobs:
           ilspycmd -p -o DecompiledDLLs/Assembly-CSharp-firstpass OriginalDLLs/Assembly-CSharp-firstpass.dll
 
       - name: Upload decompiled source folders
+        if: steps.inputs.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: stranded-deep-decompiled-dlls
