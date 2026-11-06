@@ -1,0 +1,63 @@
+name: Extract Original Unity Audio with UnityPy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - work/stranded-deep-original
+    paths:
+      - VisualAssets/ExportedProject/Assets/**
+
+permissions:
+  contents: write
+
+jobs:
+  extract-audioclips:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dedicated branch
+        uses: actions/checkout@v4
+        with:
+          ref: work/stranded-deep-original
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install UnityPy
+        run: python -m pip install --upgrade pip UnityPy
+
+      - name: Extract AudioClip samples
+        run: python Tools/UnityPy/extract_audio.py
+
+      - name: Commit extracted audio outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH="work/stranded-deep-original"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add VisualAssets/OriginalAudio/UnityPyExtracted
+
+          if git diff --cached --quiet; then
+            echo "No new UnityPy audio outputs to commit."
+            exit 0
+          fi
+
+          git commit -m "Extract original Unity AudioClip samples with UnityPy"
+
+          for attempt in 1 2 3; do
+            git fetch origin "$BRANCH"
+            git rebase "origin/$BRANCH"
+            if git push origin "HEAD:refs/heads/$BRANCH"; then
+              echo "Push succeeded on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying after sync."
+          done
+
+          echo "Push failed after 3 attempts."
+          exit 1
