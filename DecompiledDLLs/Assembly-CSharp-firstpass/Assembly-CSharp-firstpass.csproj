@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net40</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule" />
+    <Reference Include="UnityEngine.AudioModule" />
+    <Reference Include="UnityEngine.PhysicsModule" />
+    <Reference Include="UnityEngine.ParticleSystemModule" />
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>OriginalDLLs/Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule" />
+    <Reference Include="udpkit" />
+    <Reference Include="UnityEngine.UI" />
+    <Reference Include="System.Net.Http">
+      <HintPath>../../../../../../../usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.14/System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime" />
+    <Reference Include="System.Core">
+      <HintPath>../../../../../../../usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.14/System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="bolt.user" />
+    <Reference Include="UnityEngine.TerrainModule" />
+    <Reference Include="Rewired_Core" />
+    <Reference Include="UnityEngine.UIModule" />
+    <Reference Include="bolt" />
+    <Reference Include="Newtonsoft.Json" />
+    <Reference Include="com.rlabrecque.steamworks.net" />
+    <Reference Include="Sirenix.Serialization" />
+    <Reference Include="UnityEngine.IMGUIModule" />
+    <Reference Include="UnityEngine.TextRenderingModule" />
+    <Reference Include="UnityEngine.InputLegacyModule" />
+    <Reference Include="udpkit.common" />
+    <Reference Include="udpkit.platform.photon" />
+    <Reference Include="UnityEngine.AssetBundleModule" />
+    <Reference Include="UnityEngine.UnityWebRequestModule" />
+    <Reference Include="Unity.TextMeshPro" />
+    <Reference Include="UnityEngine.VideoModule" />
+    <Reference Include="UnityEngine.ScreenCaptureModule" />
+    <Reference Include="PhotonRealtime" />
+    <Reference Include="Photon3Unity3D" />
+    <Reference Include="UnityEngine.TerrainPhysicsModule" />
+    <Reference Include="Rewired_Windows" />
+    <Reference Include="Rewired_Windows_Functions" />
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule" />
+    <Reference Include="UnityEngine.ImageConversionModule" />
+    <Reference Include="Sirenix.Utilities" />
+    <Reference Include="UnityEngine.JSONSerializeModule" />
+  </ItemGroup>
+</Project>

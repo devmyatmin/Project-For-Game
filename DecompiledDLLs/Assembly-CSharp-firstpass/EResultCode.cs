@@ -1,0 +1,9 @@
+public enum EResultCode
+{
+	S_OK = 0,
+	E_FAIL = 45067,
+	E_NO_RESULT = 65535,
+	E_SAVE_CREATE_FAIL = 57005,
+	E_SAVE_WRITE_FAIL = 48879,
+	E_LDB_WRITE_FAIL = 51966
+}

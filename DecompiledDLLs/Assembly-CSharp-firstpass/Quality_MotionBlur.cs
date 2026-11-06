@@ -1,0 +1,7 @@
+public enum Quality_MotionBlur
+{
+	[Description("QUALITY_MOTION_BLUR_ON", "QUALITY_MOTION_BLUR_ON_DESC")]
+	ON,
+	[Description("QUALITY_MOTION_BLUR_OFF", "QUALITY_MOTION_BLUR_OFF_DESC")]
+	OFF
+}

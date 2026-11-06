@@ -1,0 +1,9 @@
+namespace Beam;
+
+public enum EGameStartingCrate
+{
+	[Description("NEW_GAME_MODE_STARTING_CRATE_OFF", "NEW_GAME_MODE_STARTING_CRATE_OFF_DESC")]
+	Off,
+	[Description("NEW_GAME_MODE_STARTING_CRATE_ON", "NEW_GAME_MODE_STARTING_CRATE_ON_DESC")]
+	On
+}

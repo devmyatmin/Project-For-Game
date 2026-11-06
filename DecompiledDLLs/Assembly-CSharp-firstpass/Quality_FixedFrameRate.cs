@@ -1,0 +1,25 @@
+public enum Quality_FixedFrameRate
+{
+	[Description("QUALITY_FIXED_FRAME_RATE_OFF", "")]
+	OFF,
+	[Description("QUALITY_FIXED_FRAME_RATE_30_FPS", "")]
+	THIRTY,
+	[Description("QUALITY_FIXED_FRAME_RATE_40_FPS", "")]
+	FORTY,
+	[Description("QUALITY_FIXED_FRAME_RATE_50_FPS", "")]
+	FIFTY,
+	[Description("QUALITY_FIXED_FRAME_RATE_60_FPS", "")]
+	SIXTY,
+	[Description("QUALITY_FIXED_FRAME_RATE_70_FPS", "")]
+	SEVENTY,
+	[Description("QUALITY_FIXED_FRAME_RATE_80_FPS", "")]
+	EIGHTY,
+	[Description("QUALITY_FIXED_FRAME_RATE_90_FPS", "")]
+	NINETY,
+	[Description("QUALITY_FIXED_FRAME_RATE_100_FPS", "")]
+	ONE_HUNDRED,
+	[Description("QUALITY_FIXED_FRAME_RATE_110_FPS", "")]
+	ONE_HUNDRED_TEN,
+	[Description("QUALITY_FIXED_FRAME_RATE_120_FPS", "")]
+	ONE_HUNDRED_TWENTY
+}

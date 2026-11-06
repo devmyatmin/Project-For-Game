@@ -1,0 +1,7 @@
+public enum CameraViewMode
+{
+	[Description("QUALITY_CAMERA_VIEW_MODE_FIRST_PERSON", "")]
+	FIRST_PERSON,
+	[Description("QUALITY_CAMERA_VIEW_MODE_THIRD_PERSON", "")]
+	THIRD_PERSON
+}

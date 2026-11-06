@@ -1,0 +1,10 @@
+public enum ButtonId
+{
+	CREATE_GAME,
+	CONTINUE,
+	RESUME,
+	SAVE,
+	OPTIONS,
+	QUIT,
+	QUIT_TO_DESKTOP
+}

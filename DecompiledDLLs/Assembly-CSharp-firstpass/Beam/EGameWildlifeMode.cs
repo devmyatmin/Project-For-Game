@@ -1,0 +1,11 @@
+namespace Beam;
+
+public enum EGameWildlifeMode
+{
+	[Description("NEW_GAME_MODE_WILDLIFE_NORMAL", "NEW_GAME_MODE_WILDLIFE_NORMAL_DESC")]
+	Normal,
+	[Description("NEW_GAME_MODE_WILDLIFE_PASSIVE", "NEW_GAME_MODE_WILDLIFE_PASSIVE_DESC")]
+	Passive,
+	[Description("NEW_GAME_MODE_WILDLIFE_REMOVED", "NEW_GAME_MODE_WILDLIFE_REMOVED_DESC")]
+	Removed
+}
