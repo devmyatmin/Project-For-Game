@@ -54,12 +54,30 @@ jobs:
           diff -qr "$MIXERS" "$DEST/UnityAudioMixerControllers"
 
           # Generate a reproducible SHA-256 manifest for the copied payload.
-          (cd "$DEST" && find UnityAudioClips UnityAudioMixerControllers -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum) > "$DEST/SHA256SUMS.txt"
-          sha256sum -c "$DEST/SHA256SUMS.txt"
+          # Keep one canonical payload per SHA-256; move identical extras (and their .meta)
+          # into a separate quarantine folder so original GUID metadata is preserved.
+          DUP="$DEST/UnityAudioClips/Duplicates"
+          mkdir -p "$DUP"
+          declare -A seen
+          while IFS= read -r -d '' file; do
+            hash="$(sha256sum "$file" | cut -d ' ' -f 1)"
+            if [[ -n "${seen[$hash]:-}" ]]; then
+              echo "Duplicate payload: $file matches ${seen[$hash]}"
+              mv "$file" "$DUP/"
+              if [[ -f "$file.meta" ]]; then mv "$file.meta" "$DUP/"; fi
+            else
+              seen["$hash"]="$file"
+            fi
+          done < <(find "$DEST/UnityAudioClips" -maxdepth 1 -type f \( -name '*.ogg' -o -name '*.wav' \) -print0 | sort -z)
 
-          # Check byte-identical audio payload duplicates without deleting anything.
-          echo "=== IDENTICAL AUDIO PAYLOADS (informational; retained) ==="
-          find "$DEST/UnityAudioClips" -type f \( -name '*.ogg' -o -name '*.wav' \) -print0 | xargs -0 sha256sum | sort
+          echo "=== RETAINED AUDIO PAYLOADS ==="
+          find "$DEST/UnityAudioClips" -type f \( -name '*.ogg' -o -name '*.wav' \) | sort
+          echo "=== QUARANTINED DUPLICATES ==="
+          find "$DUP" -maxdepth 1 -type f | sort
+
+          # Generate and verify manifest from its own directory root.
+          (cd "$DEST" && find UnityAudioClips UnityAudioMixerControllers -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum) > "$DEST/SHA256SUMS.txt"
+          (cd "$DEST" && sha256sum -c SHA256SUMS.txt)
 
       - name: Commit and sync branch safely
         shell: bash
