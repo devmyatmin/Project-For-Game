@@ -34,28 +34,12 @@ The source inventory is spread across the original domain folders. The list belo
 - `Player_Controller/PlayerEffect.cs` — original effect data, rates, duration, and save/load fields.
 - `Survival_Systems/StatusEffect.cs` — original status-effect definitions and difficulty-dependent setup.
 - `Survival_Systems/StatusEffectName.cs` — original status-effect identifiers.
-- `Player_Controller/PlayerSkills.cs` — original progression/experience system; depends on Unity assets, multiplayer messages, and game event systems.
 
 These files preserve original rules, but they depend on the original Beam serialization, player/statistics, game-time, difficulty, and Unity systems. They are reference sources, not plug-in Godot scripts.
 
-### Inventory, interaction, and crafting
+### Item-system source boundary
 
-The original inventory/crafting source is present in `Inventory_Items/`, including:
-
-- `Inventory_Items/Inventory.cs`
-- `Inventory_Items/InventoryData.cs`
-- `Inventory_Items/Crafter.cs`
-- `Inventory_Items/CrafterState.cs`
-- `Inventory_Items/CraftingCombinations.cs`
-- `Inventory_Items/CraftingCombination.cs`
-- `Inventory_Items/CraftingInfo.cs`
-- `Inventory_Items/CraftingType.cs`
-- `Inventory_Items/Interacter.cs`
-- `Inventory_Items/InteractiveObject.cs`
-- `Inventory_Items/SlotStorage.cs`
-- `Inventory_Items/StorageSlot.cs`
-
-This is a connected Unity subsystem, not a set of independent scripts. It depends on Unity components, prefabs, physics, Beam interfaces, serialization, localization, and original game data. It has not been imported into the active Godot scene.
+The repository contains additional item, storage, interaction, and crafting code. It is a tightly connected Unity subsystem with mixed gameplay dependencies. It is intentionally not selected or staged in this reference index during this pass; no combat-oriented logic is being integrated.
 
 ### World, island, weather, and terrain
 
