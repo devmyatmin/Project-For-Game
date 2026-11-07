@@ -1,0 +1,9 @@
+/.godot/
+/exported/
+/build/
+/dist/
+*.apk
+*.aab
+*.pck
+*.tmp
+*.log
